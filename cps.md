@@ -31,14 +31,51 @@
   </div>
   
   <div class="section">
+    <!-- start summary -->
     <div class="chart rounded-div">
+      <div class="chartheaderleft">
+        CPS Workforce Summary Q2/2026
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 93.33%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ปริมาณงานค่อนข้างสัมพันธ์กับจำนวนพนักงาน 
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ผลต่างที่มีระหว่างเดือน ยังเป็นตัวเลขที่สามารถจัดการได้
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="cps#cps-sect-bd">Business Development & Partnerships</a> <span class="text-plan">[Plan 89.70%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;กราฟตกในช่วง Q1/2027 เนื่องจากความไม่แน่นอนของงานในปีหน้า
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;BD ยังมี Available ในการรับงานในอนาคตเพิ่มเติม
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="cps#cps-sect-po">Product Commercialization</a> <span class="text-plan">[Plan 100%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;Fully Plan เนื่องจาก PO ดูแล Product ของตัวเองเต็มตัว
+        </div>
+      </div>
+    </div>
+    <!-- end summary -->
+    <div class="chart rounded-div" id="cps-main-mth">
       <canvas id="workforceChartCPS"></canvas>
     </div>
-    <div class="chart rounded-div">
+    <div class="chart rounded-div" id="cps-main-qtr">
       <canvas id="workforceChartCPSQTR"></canvas>
     </div>
     <div class="secwrapper">
-        <div class="secrow">
+        <div class="secrow" id="cps-main-avaiplan">
             <div class="secleft">
               <div class="chart rounded-div"><canvas id="workforceChartCPSAvai"></canvas></div>
             </div>
@@ -49,7 +86,7 @@
     </div>
   </div>
     
-  <div class="section">
+  <div class="section" id="cps-resource">
     Per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartCPSPR"></canvas>
@@ -62,7 +99,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="cps-sect-bd">
     CPS Business Development & Partnerships
     <div class="chart rounded-div">
       <canvas id="workforceChartCPSBD"></canvas>
@@ -79,7 +116,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="cps-sect-po">
     CPS Product Commercialization
     <div class="chart rounded-div">
       <canvas id="workforceChartCPSPO"></canvas>
@@ -95,5 +132,7 @@
         </div>
     </div>
   </div>
+  
+  <iframe src="footer.html"></iframe>
 
 </body>

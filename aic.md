@@ -31,14 +31,80 @@
   </div>
   
   <div class="section">
+    <!-- start summary -->
     <div class="chart rounded-div">
+      <div class="chartheaderleft">
+        AIC Workforce Summary Q2/2026
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 68.23%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ภาพรวม กราฟ Plan ลงเป็นระนาบเดียวกัน เนื่องจากความไม่แน่นอนในอนาคต
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;งานที่จะรับจากทาง AE/BD ยังมีความไม่แน่นอน และไม่แน่ใจจะเริ่มเมื่อไหร่
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;จำนวนพนักงานในปัจจุบัน ยังสามารถรองรับงานที่จะเข้ามาในอนาคตได้
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;Note: ไม่มีพนักงานภายใต้ Product Innovation แล้ว นับตั้งแต่ Q2/2026 เป็นต้นมา
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="aic#aic-sect-aie">AIET AI Engineering</a> <span class="text-plan">[Plan 62.62%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ปริมาณคนมากกว่าปริมาณงาน โดยมีส่วนต่างสูงสุดอยู่ที่ Q1/2027 โดยมีการ Plan อยู่ที่ 46.06% <span class="text-avai">[Available +4.3 FTE]</span>
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;งานที่จะรับจากทาง AE/BD ยังมีความไม่แน่นอน และไม่แน่ใจจะเริ่มเมื่อไหร่
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;Plan สำหรับการทำ Research & Explore ประมาณ 0.05 FTE สำหรับพนักงาน 1 คน ต่อเดือน
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="aic#aic-sect-iot">AIET IoT Engineering</a> <span class="text-plan">[Plan 67.62%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ปริมาณคนมากกว่าปริมาณงาน โดยมีส่วนต่างสูงสุดอยู่ที่ Q1/2027 โดยมีการ Plan อยู่ที่ 28.00% <span class="text-avai">[Available +3.6 FTE]</span>
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;งานพาร์ท IoT ส่วนใหญ่จะจบจบภายในปี 2026
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;Plan สำหรับการทำ Research & Explore ประมาณ 0.05 FTE สำหรับพนักงาน 1 คน ต่อเดือน
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="aic#aic-sect-sai">AIET Spatial AI Engineering</a> <span class="text-plan">[Plan 58.92%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ปริมาณคนมากกว่าปริมาณงาน โดยมีส่วนต่างสูงสุดอยู่ที่ Q1/2027 โดยมีการ Plan อยู่ที่ 10.00% <span class="text-avai">[Available +3.6 FTE]</span>
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ประเมิน Plan จากหัวข้อ Research ที่ดูแลอยู่ในปัจจุบันเท่านั้น ซึ่งงานส่วนใหญ่จะจบภายในสิ้นปี 2026
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;สำหรับหัวข้อ Research ในปี 2027 จะดูปลาย Q3 ว่าจะลง Research ในส่วนไหน ซึ่งข้อมูลการ Plan อาจะมีการเปลี่ยนแปลงในรอบการประเมินถัดไป
+        </div>
+      </div>
+    </div>
+    <!-- end summary -->
+    <div class="chart rounded-div" id="aic-main-mth">
       <canvas id="workforceChartAIC"></canvas>
     </div>
-    <div class="chart rounded-div">
+    <div class="chart rounded-div" id="aic-main-qtr">
       <canvas id="workforceChartAICQTR"></canvas>
     </div>
     <div class="secwrapper">
-        <div class="secrow">
+        <div class="secrow" id="aic-main-avaiplan">
             <div class="secleft">
               <div class="chart rounded-div"><canvas id="workforceChartAICAvai"></canvas></div>
             </div>
@@ -49,7 +115,7 @@
     </div>
   </div>
     
-  <div class="section">
+  <div class="section" id="aic-resource">
     Per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartAICPR"></canvas>
@@ -62,7 +128,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="aic-sect-ra">
     AIC AI Research & Alliance
     <div class="chart rounded-div">
       <canvas id="workforceChartAICRA"></canvas>
@@ -79,7 +145,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="aic-sect-aie">
     AIC AIET AI Engineering
     <div class="chart rounded-div">
       <canvas id="workforceChartAICAIE"></canvas>
@@ -96,7 +162,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="aic-sect-iot">
     AIC AIET IoT Engineering
     <div class="chart rounded-div">
       <canvas id="workforceChartAICIoT"></canvas>
@@ -113,7 +179,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="aic-sect-sai">
     AIC AIET Spatial AI Engineering
     <div class="chart rounded-div">
       <canvas id="workforceChartAICSAI"></canvas>
@@ -130,7 +196,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="aic-sect-pi">
     AIC Product Innovation
     <div class="chart rounded-div">
       <canvas id="workforceChartAICPI"></canvas>
@@ -146,5 +212,7 @@
         </div>
     </div>
   </div>
+  
+  <iframe src="footer.html"></iframe>
   
 </body>

@@ -31,14 +31,57 @@
   </div>
   
   <div class="section">
+    <!-- start summary -->
     <div class="chart rounded-div">
+      <div class="chartheaderleft">
+        PSE Workforce Summary Q2/2026
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 84.98%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ผลต่างที่มีระหว่างเดือน ยังเป็นตัวเลขที่สามารถจัดการได้
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ช่วงที่ Resource Available สามารถโยกมาทำ Internal Project ได้
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="pse#pse-sect-pe">Platform Engineering</a> <span class="text-plan">[Plan 100%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;Fully Plan เนื่องจากดูแล AI Platform เต็มตัว
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="pse#pse-sect-se">Software Engineering</a> <span class="text-plan">[Plan 82.42%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;กราฟตกมากสุดในช่วง Q1/2027 โดย Plan อยู่ที่ 60% <span class="text-avai">[Available +16 FTE]</span> เนื่องจากความไม่แน่นอนของโปรเจคในอนาคต
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;บางโปรเจค จบภายในปี 2026 และยังไม่มีกำหนดต่อไปถึงปีหน้า
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ตัวเลขการประเมินอาจมีการเปลี่ยนแปลงอีกครั้ง หากได้รับการคอนเฟิร์มการต่อสัญญาจาก BD
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ช่วงที่ Resource Available สามารถโยกมาทำ Internal Project ได้
+        </div>
+      </div>
+    </div>
+    <!-- end summary -->
+    <div class="chart rounded-div" id="pse-main-mth">
       <canvas id="workforceChartPSE"></canvas>
     </div>
-    <div class="chart rounded-div">
+    <div class="chart rounded-div" id="pse-main-qtr">
       <canvas id="workforceChartPSEQTR"></canvas>
     </div>
     <div class="secwrapper">
-        <div class="secrow">
+        <div class="secrow" id="pse-main-avaiplan">
             <div class="secleft">
               <a href="cps"><div class="chart rounded-div"><canvas id="workforceChartPSEAvai"></canvas></div></a>
             </div>
@@ -49,7 +92,7 @@
     </div>
   </div>
     
-  <div class="section">
+  <div class="section" id="pse-resource">
     Per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartPSEPR"></canvas>
@@ -62,7 +105,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="pse-sect-pe">
     PSE Platform Engineering
     <div class="chart rounded-div">
       <canvas id="workforceChartPSEPE"></canvas>
@@ -79,7 +122,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="pse-sect-se">
     PSE Software Engineering
     <div class="chart rounded-div">
       <canvas id="workforceChartPSESE"></canvas>
@@ -95,5 +138,7 @@
         </div>
     </div>
   </div>
+  
+  <iframe src="footer.html"></iframe>
 
 </body>

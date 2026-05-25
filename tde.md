@@ -31,14 +31,29 @@
   </div>
   
   <div class="section">
+    <!-- start summary -->
     <div class="chart rounded-div">
+      <div class="chartheaderleft">
+        TDE Workforce Summary Q2/2026
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 100.00%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;Fully Plan เนื่องจากเป็น Support Function
+        </div>
+      </div>
+    </div>
+    <!-- end summary -->
+    <div class="chart rounded-div" id="tde-main-mth">
       <canvas id="workforceChartTDE"></canvas>
     </div>
-    <div class="chart rounded-div">
+    <div class="chart rounded-div" id="tde-main-qtr">
       <canvas id="workforceChartTDEQTR"></canvas>
     </div>
     <div class="secwrapper">
-        <div class="secrow">
+        <div class="secrow" id="tde-main-avaiplan">
             <div class="secleft">
               <div class="chart rounded-div"><canvas id="workforceChartTDEAvai"></canvas></div>
             </div>
@@ -49,7 +64,7 @@
     </div>
   </div>
     
-  <div class="section">
+  <div class="section" id="tde-resource">
     Per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartTDEPR"></canvas>
@@ -62,7 +77,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="tde-sect-fi">
     TDE Financial Management
     <div class="chart rounded-div">
       <canvas id="workforceChartTDEFI"></canvas>
@@ -79,7 +94,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="tde-sect-rm">
     TDE Resource Management
     <div class="chart rounded-div">
       <canvas id="workforceChartTDERM"></canvas>
@@ -96,7 +111,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="tde-sect-ted">
     TDE Talent Experience & Development
     <div class="chart rounded-div">
       <canvas id="workforceChartTDETED"></canvas>
@@ -113,7 +128,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="tde-sect-coe">
     TDE Center of Excellences
     <div class="chart rounded-div">
       <canvas id="workforceChartTDECoE"></canvas>
@@ -129,5 +144,7 @@
         </div>
     </div>
   </div>
+  
+  <iframe src="footer.html"></iframe>
   
 </body>

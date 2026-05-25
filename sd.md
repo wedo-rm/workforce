@@ -31,14 +31,71 @@
   </div>
   
   <div class="section">
+    <!-- start summary -->
     <div class="chart rounded-div">
+      <div class="chartheaderleft">
+        SD Workforce Summary Q2/2026
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 90.10%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ภาพรวม กราฟ Plan ลงเป็นระนาบเดียวกัน เนื่องจากความไม่แน่นอนในอนาคต
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ยังมี Available ในการรับงานในอนาคตเพิ่มเติม ยกเว้น SRE, QA, TM
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="sd#sd-sect-sre">Site Reliability Engineering</a> <span class="text-plan">[Plan 105.46%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q2 โดย Plan อยู่ที่ 130.08% <span class="text-red">[Available -0.6 FTE]</span>
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;กำลังอยู่ในช่วงการสรรหาพนักงานใหม่มาเพิ่มเติม เพื่อรองรับงานปัจจุบัน และในอนาคตที่จะเข้ามาเพิ่มเติม
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="sd#sd-sect-qa">Technology QA</a> <span class="text-plan">[Plan 106.10%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q3 โดย Plan อยู่ที่ 128.89% <span class="text-red">[Available -3.5 FTE]</span>
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;สามารถใช้พนักงาน Outsource จาก Doppio มาเพื่อช่วยงานเพิ่มเติม
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;Note: Doppio usage during Jan-Apr 2026 ~ 509.22 from 1,900 MDs
+        </div>
+      </div>
+      <div class="chartbody">
+        &#8227;&ensp;<a href="sd#sd-sect-tm">Technology Management</a> <span class="text-plan">[Plan 103.52%]</span>
+      </div>
+      <div class="chartsubbody">
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q1/2027 โดย Plan อยู่ที่ 130% <span class="text-red">[Available -1.2 FTE]</span>
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;เนื่องจากโปรเจค New CDAS ต้องการ TM Support 24x7 จึงต้องมีพนักงาน Standby on-call 2 คน สลับนอกเวลางานกันคนละสัปดาห์
+        </div>
+        <div class="chartsubbodycontainer">
+          &#8226;&ensp;ตัวเลขการประเมินอาจมีการเปลี่ยนแปลงอีกครั้ง หากได้รับการคอนเฟิร์มโมเดลการจ้างงานในเดือนมิถุนายนนี้
+        </div>
+      </div>
+    </div>
+    <!-- end summary -->
+    <div class="chart rounded-div" id="sd-main-mth">
       <canvas id="workforceChartSD"></canvas>
     </div>
-    <div class="chart rounded-div">
+    <div class="chart rounded-div" id="sd-main-qtr">
       <canvas id="workforceChartSDQTR"></canvas>
     </div>
     <div class="secwrapper">
-        <div class="secrow">
+        <div class="secrow" id="sd-main-avaiplan">
             <div class="secleft">
               <div class="chart rounded-div"><canvas id="workforceChartSDAvai"></canvas></div>
             </div>
@@ -49,7 +106,7 @@
     </div>
   </div>
     
-  <div class="section">
+  <div class="section" id="sd-resource">
     Per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartSDPR"></canvas>
@@ -62,7 +119,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-design">
     SD Design
     <div class="chart rounded-div">
       <canvas id="workforceChartSDDesign"></canvas>
@@ -79,7 +136,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-data">
     SD Data Technology
     <div class="chart rounded-div">
       <canvas id="workforceChartSDData"></canvas>
@@ -96,7 +153,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-sa">
     SD Solution Architecture
     <div class="chart rounded-div">
       <canvas id="workforceChartSDSA"></canvas>
@@ -113,7 +170,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-sre">
     SD Site Reliability Engineering
     <div class="chart rounded-div">
       <canvas id="workforceChartSDSRE"></canvas>
@@ -130,7 +187,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-sec">
     SD Cyber Security
     <div class="chart rounded-div">
       <canvas id="workforceChartSDSEC"></canvas>
@@ -147,7 +204,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-pm">
     SD Project Management
     <div class="chart rounded-div">
       <canvas id="workforceChartSDPM"></canvas>
@@ -164,7 +221,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-ba">
     SD Technology Analyst
     <div class="chart rounded-div">
       <canvas id="workforceChartSDBA"></canvas>
@@ -181,7 +238,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-qa">
     SD Technology QA
     <div class="chart rounded-div">
       <canvas id="workforceChartSDQA"></canvas>
@@ -198,7 +255,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sd-sect-tm">
     SD Technology Management
     <div class="chart rounded-div">
       <canvas id="workforceChartSDTM"></canvas>
@@ -214,5 +271,7 @@
         </div>
     </div>
   </div>
+  
+  <iframe src="footer.html"></iframe>
   
 </body>
