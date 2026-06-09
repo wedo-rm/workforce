@@ -37,7 +37,7 @@
         PSE Workforce Summary Q2/2026
       </div>
       <div class="chartbody">
-        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 84.98%]</span>
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 85.26%]</span>
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
@@ -56,11 +56,11 @@
         </div>
       </div>
       <div class="chartbody">
-        &#8227;&ensp;<a href="pse#pse-sect-se">Software Engineering</a> <span class="text-plan">[Plan 82.42%]</span>
+        &#8227;&ensp;<a href="pse#pse-sect-se">Software Engineering</a> <span class="text-plan">[Plan 82.74%]</span>
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
-          &#8226;&ensp;กราฟตกมากสุดในช่วง Q1/2027 โดย Plan อยู่ที่ 60% <span class="text-avai">[Available +16 FTE]</span> เนื่องจากความไม่แน่นอนของโปรเจคในอนาคต
+          &#8226;&ensp;กราฟตกมากสุดในช่วง Q1/2027 โดย Plan อยู่ที่ 60.12% <span class="text-avai">[Available +16.35 FTE]</span> เนื่องจากความไม่แน่นอนของโปรเจคในอนาคต
         </div>
         <div class="chartsubbodycontainer">
           &#8226;&ensp;บางโปรเจค จบภายในปี 2026 และยังไม่มีกำหนดต่อไปถึงปีหน้า
