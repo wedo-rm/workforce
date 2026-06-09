@@ -34,8 +34,8 @@
   
   <div class="section">
     <div class="chart rounded-div">
-      <div class="chartheader">
-        Delivery Summary
+      <div class="chartheaderleft">
+        Delivery Summary Q2/2026
       </div>
       <div class="chartbody">
         &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 88.48%]</span>
