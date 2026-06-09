@@ -37,7 +37,7 @@
         SD Workforce Summary Q2/2026
       </div>
       <div class="chartbody">
-        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 90.10%]</span>
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 90.40%]</span>
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
@@ -48,11 +48,11 @@
         </div>
       </div>
       <div class="chartbody">
-        &#8227;&ensp;<a href="sd#sd-sect-sre">Site Reliability Engineering</a> <span class="text-plan">[Plan 105.46%]</span>
+        &#8227;&ensp;<a href="sd#sd-sect-sre">Site Reliability Engineering</a> <span class="text-plan">[Plan 104.21%]</span>
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q2 โดย Plan อยู่ที่ 130.08% <span class="text-red">[Available -0.6 FTE]</span>
+          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q2 โดย Plan อยู่ที่ 125.08% <span class="text-red">[Available -0.5 FTE]</span>
         </div>
         <div class="chartsubbodycontainer">
           &#8226;&ensp;กำลังอยู่ในช่วงการสรรหาพนักงานใหม่มาเพิ่มเติม เพื่อรองรับงานปัจจุบัน และในอนาคตที่จะเข้ามาเพิ่มเติม
@@ -63,7 +63,7 @@
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q3 โดย Plan อยู่ที่ 128.89% <span class="text-red">[Available -3.5 FTE]</span>
+          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q3 โดย Plan อยู่ที่ 129.89% <span class="text-red">[Available -3.47 FTE]</span>
         </div>
         <div class="chartsubbodycontainer">
           &#8226;&ensp;สามารถใช้พนักงาน Outsource จาก Doppio มาเพื่อช่วยงานเพิ่มเติม
