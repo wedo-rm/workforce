@@ -53,7 +53,7 @@
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q2 โดย Plan อยู่ที่ 125.08% <span class="text-red">[Available -0.5 FTE]</span>
+          &#8226;&ensp;ปริมาณงานมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q2 โดย Plan อยู่ที่ 125.08% <span class="text-red">[Available -0.5 FTE]</span>
         </div>
         <div class="chartsubbodycontainer">
           &#8226;&ensp;กำลังอยู่ในช่วงการสรรหาพนักงานใหม่มาเพิ่มเติม เพื่อรองรับงานปัจจุบัน และในอนาคตที่จะเข้ามาเพิ่มเติม
@@ -64,7 +64,7 @@
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q3 โดย Plan อยู่ที่ 129.89% <span class="text-red">[Available -3.47 FTE]</span>
+          &#8226;&ensp;ปริมาณงานมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q3 โดย Plan อยู่ที่ 129.89% <span class="text-red">[Available -3.47 FTE]</span>
         </div>
         <div class="chartsubbodycontainer">
           &#8226;&ensp;สามารถใช้พนักงาน Outsource จาก Doppio มาเพื่อช่วยงานเพิ่มเติม
@@ -78,7 +78,7 @@
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q1/2027 โดย Plan อยู่ที่ 130% <span class="text-red">[Available -1.2 FTE]</span>
+          &#8226;&ensp;ปริมาณงานมากกว่าจำนวนพนักงาน สูงที่สุดในช่วง Q1/2027 โดย Plan อยู่ที่ 130% <span class="text-red">[Available -1.2 FTE]</span>
         </div>
         <div class="chartsubbodycontainer">
           &#8226;&ensp;เนื่องจากโปรเจค New CDAS ต้องการ TM Support 24x7 จึงต้องมีพนักงาน Standby on-call 2 คน สลับนอกเวลางานกันคนละสัปดาห์
