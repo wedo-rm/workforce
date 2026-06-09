@@ -37,7 +37,7 @@
         Executive Summary
       </div>
       <div class="chartbody">
-        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 92.18%]</span>
+        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 86.54%]</span>
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
@@ -47,7 +47,7 @@
           <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
           <div class="chartsubbodydata">
             <a href="sd#sd-sect-qa">SD-QA</a> 106.10%<br>
-            <a href="sd#sd-sect-sre">SD-SRE</a> 105.46%<br>
+            <a href="sd#sd-sect-sre">SD-SRE</a> 104.21%<br>
             <a href="sd#sd-sect-tm">SD-TM</a> 103.52%
           </div>
         </div>
@@ -57,13 +57,13 @@
             <a href="aic#aic-sect-sai">AIC-SAI</a> 58.92% <span class="text-avai">[Available 41.08%]</span><br>
             <a href="aic#aic-sect-aie">AIC-AIE</a> 62.62% <span class="text-avai">[Available 37.38%]</span><br>
             <a href="aic#aic-sect-iot">AIC-IoT</a> 67.62% <span class="text-avai">[Available 32.38%]</span><br>
-            <a href="sd#sd-sect-design">SD-Design</a> 67.89% <span class="text-avai">[Available 32.11%]</span> 
+            <a href="sd#sd-sect-design">SD-Design</a> 69.24% <span class="text-avai">[Available 30.76%]</span> 
           </div>
         </div>
         <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
           <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+7.2 FTE</span><br>
+            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+7.1 FTE</span><br>
             <a href="aic#aic-sect-aie">AIC-AIE</a> <span class="text-avai">+3 FTE</span><br>
             <a href="aic#aic-sect-iot">AIE-IoT</a> <span class="text-avai">+1.7 FTE</span><br> 
             <a href="sd#sd-sect-data">SD-Data</a> <span class="text-avai">+1.7 FTE</span>
@@ -72,7 +72,7 @@
         <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Average Plan</div>
           <div class="chartsubbodydata">
-            81.59 % (Available ~ <span class="text-avai">+27.68 FTE</span> per month)
+            86.54 % (Available ~ <span class="text-avai">+20.23 FTE</span> per month)
           </div>
         </div>
       </div>
@@ -86,10 +86,10 @@
         <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
           <div class="chartsubbodydata">
-            <a href="sd#sd-sect-sre">SD-SRE</a> 130.08%<br>
+            <a href="sd#sd-sect-sre">SD-SRE</a> 125.08%<br>
             <a href="sd#sd-sect-qa">SD-QA</a> 105.79%<br>
-            <a href="sd#sd-sect-ba">SD-BA</a> 104.75%<br>
-            <a href="cps#cps-sect-bd">CPS-BD</a> 103.94%
+            <a href="cps#cps-sect-bd">CPS-BD</a> 103.94%<br>
+            <a href="sd#sd-sect-ba">SD-BA</a> 103.125%
           </div>
         </div>
         <div class="chartsubbodycontainer">
@@ -103,7 +103,7 @@
           <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
           <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+2.6 FTE</span><br>
+            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+2.63 FTE</span><br>
             <a href="aic#aic-sect-aie">AIC-AIE</a> <span class="text-avai">+0.97 FTE</span><br> 
             <a href="sd#sd-sect-data">SD-Data</a> <span class="text-avai">+0.92 FTE</span><br>
             <a href="aic#aic-sect-iot">AIC-IoT</a> <span class="text-avai">+0.9 FTE</span> 
@@ -117,7 +117,7 @@
         </div>
       </div>
       <div class="chartbody">
-        &#8227;&ensp;Q1 2027 <span class="text-plan">[Plan 69.62%]</span>
+        &#8227;&ensp;Q1 2027 <span class="text-plan">[Plan 69.63%]</span>
       </div>
       <div class="chartsubbody">
         <div class="chartsubbodycontainer">
