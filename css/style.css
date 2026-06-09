@@ -198,8 +198,11 @@ h1 a {
 .text-lightblue, .text-os {
   color: #5b9bd5;
 }
-.text-green, .text-avai {
+.text-green {
   color: #71ad47;
+}
+.text-avai {
+  color: #ff0000;
 }
 .text-darkgreen, .text-actual {
   color: #06b050;
