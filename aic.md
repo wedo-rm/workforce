@@ -22,7 +22,8 @@
   </div>
   
   <div class="subtitle">
-    <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> AIC Workforce </span> |
+    <span class="submenu">
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> AIC Workforce </span> |
       <a href="aic#aic-sect-ra"> R&A</a> &#8226;
       <a href="aic#aic-sect-aie">AIE</a> &#8226;
       <a href="aic#aic-sect-iot">IoT</a> &#8226;
