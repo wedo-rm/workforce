@@ -147,7 +147,7 @@
         </div>
       </div>
     </div>
-    All Departments
+    <br>
     <div class="chart rounded-div" id="index-all">
       <div class="chartheaderleft">
         All Departments
@@ -189,8 +189,12 @@
 
   <!-- Delivery -->
   
-  <div class="section" id="index-dv">
-    Delivery [CPS / PSE / SD]
+  <div class="section">
+    <div class="chart rounded-div" id="index-dv">
+      <div class="chartheaderleft">
+        Delivery [CPS, PSE, SD]
+      </div>
+    </div>
     <div class="chart rounded-div" id="index-dv-planactual">
       <canvas id="workforceChartDVPlanActual"></canvas>
     </div>
@@ -213,7 +217,7 @@
   </div>
     
   <div class="section" id="index-dv-resource">
-    Delivery [CPS / PSE / SD] per Resource Type
+    Per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartDVPR"></canvas>
     </div>
