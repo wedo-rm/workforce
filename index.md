@@ -147,6 +147,12 @@
         </div>
       </div>
     </div>
+    All Departments
+    <div class="chart rounded-div" id="index-all">
+      <div class="chartheaderleft">
+        All Departments
+      </div>
+    </div>
     <div class="chart rounded-div" id="index-planactual">
       <canvas id="workforceChartDOPlanActual"></canvas>
     </div>
@@ -169,7 +175,7 @@
   </div>
     
   <div class="section" id="index-resource">
-    Per Resource Type
+    All Departments per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartDOPR"></canvas>
     </div>
@@ -180,6 +186,46 @@
       <canvas id="workforceChartDOOS"></canvas>
     </div>
   </div>
+
+  <!-- Delivery -->
+  
+  <div class="section" id="index-dv">
+    Delivery [CPS / PSE / SD]
+    <div class="chart rounded-div" id="index-dv-planactual">
+      <canvas id="workforceChartDVPlanActual"></canvas>
+    </div>
+    <div class="chart rounded-div" id="index-dv-main-mth">
+      <canvas id="workforceChartDV"></canvas>
+    </div>
+    <div class="chart rounded-div" id="index-dv-main-qtr">
+      <canvas id="workforceChartDVQTR"></canvas>
+    </div>
+    <div class="secwrapper">
+        <div class="secrow" id="index-dv-main-avaiplan">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartDVAvai"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartDVPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
+  </div>
+    
+  <div class="section" id="index-dv-resource">
+    Delivery [CPS / PSE / SD] per Resource Type
+    <div class="chart rounded-div">
+      <canvas id="workforceChartDVPR"></canvas>
+    </div>
+    <div class="chart rounded-div">
+      <canvas id="workforceChartDVCT"></canvas>
+    </div>
+    <div class="chart rounded-div">
+      <canvas id="workforceChartDVOS"></canvas>
+    </div>
+  </div>
+
+  <!-- Department -->
   
   <div class="section" id="index-dept">
     Per Department
