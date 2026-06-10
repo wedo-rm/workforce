@@ -19,11 +19,14 @@
     <a href="sd">Solution Delivery</a>
     <a href="aic">AI Innovation Center</a>
     <a href="tde">Talent & Digital Enablement</a>
-    <a href="delivery">Delivery Team [CPS, PSE, SD]</a>
   </div>
   
   <div class="subtitle">
-    <span class="submenu" onclick="openNav()"><span style="font-size:30px;">&#9776;</span> CPS Workforce </span>
+    <span class="submenu">
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> CPS Workforce </span> |
+      <a href="cps#cps-sect-bd">BD</a> &#8226;
+      <a href="cps#cps-sect-po">PO</a>
+    </span>
     <span class="subbtn">
       <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7B9BBF68FA-8ED4-4047-B96B-FBAB880F6546%7D&file=DO%20Workforce%20-%202%20CPS.xlsx&action=default&mobileredirect=true" target="_blank">
         <img src="svg/menu-excel.svg" alt="background">
