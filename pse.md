@@ -19,7 +19,6 @@
     <a href="sd">Solution Delivery</a>
     <a href="aic">AI Innovation Center</a>
     <a href="tde">Talent & Digital Enablement</a>
-    <a href="delivery">Delivery Team [CPS, PSE, SD]</a>
   </div>
   
   <div class="subtitle">
