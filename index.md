@@ -172,10 +172,6 @@
             </div>
         </div>
     </div>
-  </div>
-    
-  <div class="section" id="index-resource">
-    All Departments per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartDOPR"></canvas>
     </div>
@@ -189,8 +185,8 @@
 
   <!-- Delivery -->
   
-  <div class="section">
-    <div class="chart rounded-div" id="index-dv">
+  <div class="section" id="index-dv">
+    <div class="chart rounded-div">
       <div class="chartheaderleft">
         Delivery [CPS, PSE, SD]
       </div>
@@ -214,10 +210,6 @@
             </div>
         </div>
     </div>
-  </div>
-    
-  <div class="section" id="index-dv-resource">
-    Per Resource Type
     <div class="chart rounded-div">
       <canvas id="workforceChartDVPR"></canvas>
     </div>
