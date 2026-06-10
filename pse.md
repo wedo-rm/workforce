@@ -23,7 +23,6 @@
   </div>
   
   <div class="subtitle">
-    <span class="submenu" onclick="openNav()"><span style="font-size:30px;">&#9776;</span> PSE Workforce </span>
     <span class="submenu">
       <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> PSE Workforce </span> |
       <a href="pse#pse-sect-pe">PE</a> &#8226;
