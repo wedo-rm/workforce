@@ -147,8 +147,12 @@
         </div>
       </div>
     </div>
-    <br>
-    <div class="chart rounded-div" id="index-all">
+  </div>
+  
+  <!-- All Departments -->
+  
+  <div class="section" id="index-all">
+    <div class="chart rounded-div">
       <div class="chartheaderleft">
         All Departments
       </div>
