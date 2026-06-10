@@ -19,11 +19,16 @@
     <a href="sd">Solution Delivery</a>
     <a href="aic">AI Innovation Center</a>
     <a href="tde" id="selected">Talent & Digital Enablement</a>
-    <a href="delivery">Delivery Team [CPS, PSE, SD]</a>
   </div>
   
   <div class="subtitle">
-    <span class="submenu" onclick="openNav()"><span style="font-size:30px;">&#9776;</span> TDE Workforce </span>
+    <span class="submenu">
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> TDE Workforce </span> |
+      <a href="tde#tde-sect-fi">Finance</a> &#8226;
+      <a href="tde#tde-sect-rm">RM</a> &#8226;
+      <a href="tde#tde-sect-ted">TED</a> &#8226;
+      <a href="tde#tde-sect-coe">CoE</a>
+    </span>
     <span class="subbtn">
       <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7B8BDA76AC-1AA5-43CC-82EB-EB63A21DF770%7D&file=DO%20Workforce%20-%206%20TDE.xlsx&action=default&mobileredirect=true" target="_blank">
         <img src="svg/menu-excel.svg" alt="background">
