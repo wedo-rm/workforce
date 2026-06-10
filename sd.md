@@ -19,11 +19,21 @@
     <a href="sd" id="selected">Solution Delivery</a>
     <a href="aic">AI Innovation Center</a>
     <a href="tde">Talent & Digital Enablement</a>
-    <a href="delivery">Delivery Team [CPS, PSE, SD]</a>
   </div>
   
   <div class="subtitle">
-    <span class="submenu" onclick="openNav()"><span style="font-size:30px;">&#9776;</span> SD Workforce </span>
+    <span class="submenu">
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> SD Workforce </span> |
+      <a href="sd#sd-sect-design">Design</a> &#8226;
+      <a href="sd#sd-sect-data">Data</a> &#8226;
+      <a href="sd#sd-sect-sa">SA</a> &#8226;
+      <a href="sd#sd-sect-sre">SRE</a> &#8226;
+      <a href="sd#sd-sect-sec">SEC</a> &#8226;
+      <a href="sd#sd-sect-pm">PM</a> &#8226;
+      <a href="sd#sd-sect-ba">BA</a> &#8226;
+      <a href="sd#sd-sect-qa">QA</a> &#8226;
+      <a href="sd#sd-sect-tm">TM</a>
+    </span>
     <span class="subbtn">
       <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BC72218B3-A306-4A72-A5E7-52741AB15BB6%7D&file=DO%20Workforce%20-%204%20SD.xlsx&action=default&mobileredirect=true" target="_blank">
         <img src="svg/menu-excel.svg" alt="background">
