@@ -19,11 +19,16 @@
     <a href="sd">Solution Delivery</a>
     <a href="aic" id="selected">AI Innovation Center</a>
     <a href="tde">Talent & Digital Enablement</a>
-    <a href="delivery">Delivery Team [CPS, PSE, SD]</a>
   </div>
   
   <div class="subtitle">
-    <span class="submenu" onclick="openNav()"><span style="font-size:30px;">&#9776;</span> AIC Workforce </span>
+    <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> AIC Workforce </span> |
+      <a href="aic#aic-sect-ra"> R&A</a> &#8226;
+      <a href="aic#aic-sect-aie">AIE</a> &#8226;
+      <a href="aic#aic-sect-iot">IoT</a> &#8226;
+      <a href="aic#aic-sect-sai">SAI</a> &#8226;
+      <a href="aic#aic-sect-pi"> PI</a>
+    </span>
     <span class="subbtn">
       <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BD68329D4-3D1A-4AEA-BD0D-DD0EF3E5B83E%7D&file=DO%20Workforce%20-%205%20AIC.xlsx&action=default&mobileredirect=true" target="_blank">
         <img src="svg/menu-excel.svg" alt="background">
