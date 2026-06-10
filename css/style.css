@@ -109,6 +109,10 @@ h1 a {
 .submenu {
   cursor: pointer;
 }
+.submenu a {
+  font-weight: normal;
+  color: #4472c4;
+}
 .subbtn {
   text-align: center;
   text-decoration: none;
