@@ -152,6 +152,8 @@
     </div>
   </div>
   
+  <hr>
+  
   <!-- All Departments -->
   
   <div class="section" id="index-all">
@@ -189,6 +191,8 @@
       <canvas id="workforceChartDOOS"></canvas>
     </div>
   </div>
+  
+  <hr>
 
   <!-- Delivery -->
   
@@ -227,6 +231,8 @@
       <canvas id="workforceChartDVOS"></canvas>
     </div>
   </div>
+
+  <hr>
 
   <!-- Department -->
   
