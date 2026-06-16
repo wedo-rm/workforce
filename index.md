@@ -283,7 +283,7 @@
   </div>
     
   <div class="section" id="index-project">
-    Per Focus Area
+    Focus Area
     <div class="chart rounded-div">
       <canvas id="workforceChartProject"></canvas>
     </div>
