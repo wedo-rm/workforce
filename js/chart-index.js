@@ -1841,7 +1841,7 @@ new Chart(ctxproject, {
         title: {
             display: true,
             fontSize: 20,
-            text: 'Project Focus Group',
+            text: 'FTE per Focus Area',
             padding: 20,
             fontColor: '#616161',
         },
@@ -1982,7 +1982,7 @@ new Chart(ctxproduct, {
         title: {
             display: true,
             fontSize: 20,
-            text: 'DO Product',
+            text: 'FTE per DO Product',
             padding: 20,
             fontColor: '#616161',
         },
