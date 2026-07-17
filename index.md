@@ -21,6 +21,7 @@
     <a href="aic">AI Innovation Center</a>
     <a href="tde">Talent & Digital Enablement</a>
   </div>
+
   
   <div class="subtitle">
     <span class="submenu">
@@ -148,6 +149,9 @@
             <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai"> +16.35 FTE</span>
           </div>
         </div>
+
+TEST Allocation
+<topalloc>SD-SRE, sd, sd-sect-sre, 125.08%</topalloc>
       </div>
     </div>
   </div>
