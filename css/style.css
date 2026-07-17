@@ -237,7 +237,7 @@ h1 a {
 
 .grid-row {
     display: grid;
-    grid-template-columns: 100px 60px auto;
+    grid-template-columns: 80px 60px auto;
     gap: 8px;
 }
 
