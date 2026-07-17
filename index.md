@@ -106,7 +106,16 @@
         <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
           <div class="chartsubbodydata">
-            <a href="sd#sd-sect-tm">SD-TM</a> 78.08% <span class="text-avai">[Available 21.92%]</span><br>
+            <div class="grid-row">
+              <a href="sd#sd-sect-tm">SD-TM</a>
+              <span>78.08%</span>
+              <span class="text-avai">[Available 21.92%]</span>
+            </div>
+            <div class="grid-row">
+              <a href="aic#aic-sect-sai">AIC-SAI</a>
+              <span>81.92%</span>
+              <span class="text-avai">[Available 18.08%]</span><br>
+            </div>
             <a href="aic#aic-sect-sai">AIC-SAI</a> 81.92% <span class="text-avai">[Available 18.08%]</span><br> 
             <a href="aic#aic-sect-iot">AIC-IoT</a> 85.00% <span class="text-avai">[Available 15.00%]</span> 
           </div>
