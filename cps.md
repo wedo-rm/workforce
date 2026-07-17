@@ -23,7 +23,7 @@
   
   <div class="subtitle">
     <span class="submenu">
-      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> CPS Workforce - Q3 </span> |
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> CPS Workforce </span> |
       <a href="cps#cps-sect-bd">BD</a> &#8226;
       <a href="cps#cps-sect-po">PO</a>
     </span>

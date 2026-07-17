@@ -24,7 +24,7 @@
   
   <div class="subtitle">
     <span class="submenu">
-      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce - Q3 </span> |
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce </span> |
       <a href="index#index-all">All Departments</a> &#8226;
       <a href="index#index-dv">Delivery [CPS, PSE, SD]</a>
     </span>
@@ -58,10 +58,10 @@
         <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
           <div class="chartsubbodydata">
-            <a href="aic#aic-sect-sai">AIC-SAI</a> 58.92% <span class="text-avai">[Available 41.08%]</span><br>
-            <a href="aic#aic-sect-aie">AIC-AIE</a> 62.62% <span class="text-avai">[Available 37.38%]</span><br>
-            <a href="aic#aic-sect-iot">AIC-IoT</a> 67.62% <span class="text-avai">[Available 32.38%]</span><br>
-            <a href="sd#sd-sect-design">SD-Design</a> 69.24% <span class="text-avai">[Available 30.76%]</span> 
+            <a href="aic#aic-sect-sai">AIC-SAI</a>     58.92% <span class="text-avai">[Available 41.08%]</span><br>
+            <a href="aic#aic-sect-aie">AIC-AIE</a>     62.62% <span class="text-avai">[Available 37.38%]</span><br>
+            <a href="aic#aic-sect-iot">AIC-IoT</a>     67.62% <span class="text-avai">[Available 32.38%]</span><br>
+            <a href="sd#sd-sect-design">SD-Design</a>  69.24% <span class="text-avai">[Available 30.76%]</span> 
           </div>
         </div>
         <div class="chartsubbodycontainer">
