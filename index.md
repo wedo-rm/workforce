@@ -24,7 +24,7 @@
   
   <div class="subtitle">
     <span class="submenu">
-      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce </span> |
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce - New Version </span> |
       <a href="index#index-all">All Departments</a> &#8226;
       <a href="index#index-dv">Delivery [CPS, PSE, SD]</a>
     </span>
