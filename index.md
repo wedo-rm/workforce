@@ -25,7 +25,7 @@
   
   <div class="subtitle">
     <span class="submenu">
-      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce </span> |
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce : Indent </span> |
       <a href="index#index-all">All Departments</a> &#8226;
       <a href="index#index-dv">Delivery [CPS, PSE, SD]</a>
     </span>
@@ -91,8 +91,14 @@
         <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
           <div class="chartsubbodydata">
-            <a href="sd#sd-sect-sre">SD-SRE</a> 125.08%<br>
-            <a href="sd#sd-sect-qa">SD-QA</a> 105.79%<br>
+            <div class="avai-row">
+              <a href="sd#sd-sect-sre">SD-SRE</a>
+              125.08%
+            </div>
+            <div class="avai-row">
+              <a href="sd#sd-sect-qa">SD-QA</a>
+              105.79%
+            </div>
             <a href="cps#cps-sect-bd">CPS-BD</a> 103.94%<br>
             <a href="sd#sd-sect-ba">SD-BA</a> 103.125%
           </div>
@@ -150,8 +156,6 @@
           </div>
         </div>
 
-TEST Allocation
-<topalloc>SD-SRE, sd, sd-sect-sre, 125.08%</topalloc>
       </div>
     </div>
   </div>

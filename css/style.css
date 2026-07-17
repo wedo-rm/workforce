@@ -235,6 +235,12 @@ h1 a {
   background-color: white;
 }
 
+.grid-row {
+    display: grid;
+    grid-template-columns: 100px 60px auto;
+    gap: 8px;
+}
+
 /*
   multiple detail
 */
