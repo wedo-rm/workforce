@@ -91,11 +91,11 @@
         <div class="chartsubbodycontainer">
           <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
           <div class="chartsubbodydata">
-            <div class="avai-row">
+            <div class="grid-row">
               <a href="sd#sd-sect-sre">SD-SRE</a>
               <span>125.08%</span>
             </div>
-            <div class="avai-row">
+            <div class="grid-row">
               <a href="sd#sd-sect-qa">SD-QA</a>
               <span>105.79%</span>
             </div>
