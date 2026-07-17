@@ -93,11 +93,11 @@
           <div class="chartsubbodydata">
             <div class="avai-row">
               <a href="sd#sd-sect-sre">SD-SRE</a>
-              125.08%
+              <span>125.08%</span>
             </div>
             <div class="avai-row">
               <a href="sd#sd-sect-qa">SD-QA</a>
-              105.79%
+              <span>105.79%</span>
             </div>
             <a href="cps#cps-sect-bd">CPS-BD</a> 103.94%<br>
             <a href="sd#sd-sect-ba">SD-BA</a> 103.125%
