@@ -1,10 +1,10 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.14.3/dist/xlsx.full.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/0.7.0/chartjs-plugin-datalabels.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <script src="js/summary.js" type="module"></script>
+  <script src="js/back-to-top.js" type="module"></script>
   <script src="js/chart-pse.js" type="module"></script>
   <script src="js/sidenav.js" type="text/javascript"></script>
 </head>
@@ -35,49 +35,12 @@
   </div>
   
   <div class="section">
-    <!-- start summary -->
-    <div class="chart rounded-div">
-      <div class="chartheaderleft">
-        PSE Workforce Summary Q2/2026
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 85.26%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ผลต่างที่มีระหว่างเดือน ยังเป็นตัวเลขที่สามารถจัดการได้
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ช่วงที่ Resource Available สามารถโยกมาทำ Internal Project ได้
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;<a href="pse#pse-sect-pe">Platform Engineering</a> <span class="text-plan">[Plan 100%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;Fully Plan เนื่องจากดูแล AI Platform เต็มตัว
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;<a href="pse#pse-sect-se">Software Engineering</a> <span class="text-plan">[Plan 82.74%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;กราฟตกมากสุดในช่วง Q1/2027 โดย Plan อยู่ที่ 60.12% <span class="text-avai">[Available +16.35 FTE]</span> เนื่องจากความไม่แน่นอนของโปรเจคในอนาคต
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;บางโปรเจค จบภายในปี 2026 และยังไม่มีกำหนดต่อไปถึงปีหน้า
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ตัวเลขการประเมินอาจมีการเปลี่ยนแปลงอีกครั้ง หากได้รับการคอนเฟิร์มการต่อสัญญาจาก BD
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ช่วงที่ Resource Available สามารถโยกมาทำ Internal Project ได้
-        </div>
-      </div>
+    <div
+      id="summary-pse"
+      class="chart rounded-div"
+      data-summary-page="pse"
+      data-summary-header-class="chartheaderleft">
     </div>
-    <!-- end summary -->
     <div class="chart rounded-div" id="pse-main-mth">
       <canvas id="workforceChartPSE"></canvas>
     </div>
@@ -87,10 +50,10 @@
     <div class="secwrapper">
         <div class="secrow" id="pse-main-avaiplan">
             <div class="secleft">
-              <a href="cps"><div class="chart rounded-div"><canvas id="workforceChartPSEAvai"></canvas></div></a>
+              <div class="chart rounded-div"><canvas id="workforceChartPSEAvai"></canvas></div>
             </div>
             <div class="secright">
-              <a href="pse"><div class="chart rounded-div"><canvas id="workforceChartPSEPlanQtr"></canvas></div></a>
+              <div class="chart rounded-div"><canvas id="workforceChartPSEPlanQtr"></canvas></div>
             </div>
         </div>
     </div>
@@ -98,14 +61,16 @@
     
   <div class="section" id="pse-resource">
     Per Resource Type
-    <div class="chart rounded-div">
-      <canvas id="workforceChartPSEPR"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartPSECT"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartPSEOS"></canvas>
+    <div class="resource-type-grid">
+      <div class="chart rounded-div">
+        <canvas id="workforceChartPSEPR"></canvas>
+      </div>
+      <div class="chart rounded-div">
+        <canvas id="workforceChartPSECT"></canvas>
+      </div>
+      <div class="chart rounded-div">
+        <canvas id="workforceChartPSEOS"></canvas>
+      </div>
     </div>
   </div>
 
@@ -143,6 +108,13 @@
     </div>
   </div>
   
+  <button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+    title="Back to top">&#8593;</button>
+
   <iframe src="footer.html"></iframe>
 
 </body>

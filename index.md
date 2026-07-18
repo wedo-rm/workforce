@@ -1,11 +1,11 @@
 <head>
   <base target="_blank">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.14.3/dist/xlsx.full.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/0.7.0/chartjs-plugin-datalabels.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <script src="js/summary.js" type="module"></script>
+  <script src="js/back-to-top.js" type="module"></script>
   <script src="js/chart-index.js" type="module"></script>
   <script src="js/sidenav.js" type="text/javascript"></script>
 </head>
@@ -13,7 +13,7 @@
 <body class="body-main">
 
   <div id="mainSidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#" target="_self" class="closebtn" onclick="closeNav(); return false;" aria-label="Close navigation">&times;</a>
     <a href="index" id="selected">SCG Digital</a>
     <a href="cps">Commercial Products & Solutions</a>
     <a href="pse">Platform & Software Engineering</a>
@@ -25,9 +25,9 @@
   
   <div class="subtitle">
     <span class="submenu">
-      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce : Indent </span> |
-      <a href="index#index-all">All Departments</a> &#8226;
-      <a href="index#index-dv">Delivery [CPS, PSE, SD]</a>
+      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce </span> |
+      <a href="#index-all" target="_self">All Departments</a> &#8226;
+      <a href="#index-dv" target="_self">Delivery [CPS, PSE, SD]</a>
     </span>
     <span class="subbtn">
       <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BE5121AEA-3700-4875-85EF-5058B984DD9E%7D&file=DO%20Workforce%20-%20Master.xlsx&action=default&mobileredirect=true" target="_blank">
@@ -37,138 +37,14 @@
   </div>
   
   <div class="section">
-    <div class="chart rounded-div">
-      <div class="chartheader">
-        Executive Summary
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 86.54%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณคน > ปริมาณงาน (diff average รายปี)
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-qa">SD-QA</a> 106.10%<br>
-            <a href="sd#sd-sect-sre">SD-SRE</a> 104.21%<br>
-            <a href="sd#sd-sect-tm">SD-TM</a> 103.52%
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
-          <div class="chartsubbodydata">
-            <a href="aic#aic-sect-sai">AIC-SAI</a>     58.92% <span class="text-avai">[Available 41.08%]</span><br>
-            <a href="aic#aic-sect-aie">AIC-AIE</a>     62.62% <span class="text-avai">[Available 37.38%]</span><br>
-            <a href="aic#aic-sect-iot">AIC-IoT</a>     67.62% <span class="text-avai">[Available 32.38%]</span><br>
-            <a href="sd#sd-sect-design">SD-Design</a>  69.24% <span class="text-avai">[Available 30.76%]</span> 
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
-          <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+7.1 FTE</span><br>
-            <a href="aic#aic-sect-aie">AIC-AIE</a> <span class="text-avai">+3 FTE</span><br>
-            <a href="aic#aic-sect-iot">AIE-IoT</a> <span class="text-avai">+1.7 FTE</span><br> 
-            <a href="sd#sd-sect-data">SD-Data</a> <span class="text-avai">+1.7 FTE</span>
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Average Plan</div>
-          <div class="chartsubbodydata">
-            86.54 % (Available ~ <span class="text-avai">+20.23 FTE</span> per month)
-          </div>
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q2 2026 <span class="text-plan">[Plan 95.54%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-        &#8226;&ensp;May มีปริมาณ Plan FTE สูงสุด [92.03%] เนื่องจากมีงานเข้ามาแน่นอนแล้วในช่วงปัจจุบัน
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
-          <div class="chartsubbodydata">
-            <div class="grid-row">
-              <a href="sd#sd-sect-sre">SD-SRE</a>
-              <span>125.08%</span>
-            </div>
-            <div class="grid-row">
-              <a href="sd#sd-sect-qa">SD-QA</a>
-              <span>105.79%</span>
-            </div>
-            <a href="cps#cps-sect-bd">CPS-BD</a> 103.94%<br>
-            <a href="sd#sd-sect-ba">SD-BA</a> 103.125%
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
-          <div class="chartsubbodydata">
-            <div class="grid-row">
-              <a href="sd#sd-sect-tm">SD-TM</a>
-              <span>78.08%</span>
-              <span class="text-avai">[Available 21.92%]</span>
-            </div>
-            <div class="grid-row">
-              <a href="aic#aic-sect-sai">AIC-SAI</a>
-              <span>81.92%</span>
-              <span class="text-avai">[Available 18.08%]</span><br>
-            </div>
-            <a href="aic#aic-sect-sai">AIC-SAI</a> 81.92% <span class="text-avai">[Available 18.08%]</span><br> 
-            <a href="aic#aic-sect-iot">AIC-IoT</a> 85.00% <span class="text-avai">[Available 15.00%]</span> 
-          </div>
-        </div>
-          <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
-          <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+2.63 FTE</span><br>
-            <a href="aic#aic-sect-aie">AIC-AIE</a> <span class="text-avai">+0.97 FTE</span><br> 
-            <a href="sd#sd-sect-data">SD-Data</a> <span class="text-avai">+0.92 FTE</span><br>
-            <a href="aic#aic-sect-iot">AIC-IoT</a> <span class="text-avai">+0.9 FTE</span> 
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ยังเป็นตัวเลขที่สามารถจัดการได้ โดยทีมที่พนักงานเกิน (PSE-SE) สามารถโยกมาทำ Internal Project ได้
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ส่วนทีมที่พนักงานขาด (SD-SRE) กำลังอยู่ในช่วงการสรรหาพนักงานใหม่มาเพิ่มเติม
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q1 2027 <span class="text-plan">[Plan 69.63%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;Available เป็นจำนวนมาก เกิดจากความไม่แน่นอนในโปรเจคใหม่ที่จะเข้ามาในปีหน้า รวมถึงมีโปรเจคที่จบตั้งแต่ปี 2026 และยังไม่มีแผนขยาย
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-tm">SD-TM</a> 130%
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
-          <div class="chartsubbodydata">
-            <a href="aic#aic-sect-sai">AIC-SAI</a> 10% <span class="text-avai">[Available 90%]</span><br>
-            <a href="sd#sd-sect-pm">SD-PM</a> 25% <span class="text-avai">[Available 75%]</span><br>
-            <a href="sd#sd-sect-design">SD-Design</a> 27.86% <span class="text-avai">[Available 72.14%]</span><br>
-            <a href="aic#aic-sect-iot">AIC-IoT</a> 28% <span class="text-avai">[Available 72%]</span> 
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
-          <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai"> +16.35 FTE</span>
-          </div>
-        </div>
-
-      </div>
+    <div
+      id="summary-index"
+      class="chart rounded-div"
+      data-summary-page="index"
+      data-summary-header-class="chartheader">
     </div>
   </div>
-  
+
   <hr>
   
   <!-- All Departments -->
@@ -198,14 +74,16 @@
             </div>
         </div>
     </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDOPR"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDOCT"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDOOS"></canvas>
+    <div class="resource-type-grid">
+      <div class="chart rounded-div">
+        <canvas id="workforceChartDOPR"></canvas>
+      </div>
+      <div class="chart rounded-div">
+        <canvas id="workforceChartDOCT"></canvas>
+      </div>
+      <div class="chart rounded-div">
+        <canvas id="workforceChartDOOS"></canvas>
+      </div>
     </div>
   </div>
   
@@ -238,14 +116,16 @@
             </div>
         </div>
     </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDVPR"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDVCT"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDVOS"></canvas>
+    <div class="resource-type-grid">
+      <div class="chart rounded-div">
+        <canvas id="workforceChartDVPR"></canvas>
+      </div>
+      <div class="chart rounded-div">
+        <canvas id="workforceChartDVCT"></canvas>
+      </div>
+      <div class="chart rounded-div">
+        <canvas id="workforceChartDVOS"></canvas>
+      </div>
     </div>
   </div>
 
@@ -337,7 +217,13 @@
     </div>
   </div>
   
+  <button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+    title="Back to top">&#8593;</button>
+
   <iframe src="footer.html"></iframe>
 
 </body>
-
