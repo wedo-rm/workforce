@@ -8,6 +8,7 @@
   <script src="js/back-to-top.js" type="module"></script>
   <script src="js/chart-index.js" type="module"></script>
   <script src="js/sidenav.js" type="text/javascript"></script>
+  <script src="js/quick-links.js" type="text/javascript"></script>
 </head>
 
 <body class="body-main">
@@ -25,13 +26,46 @@
   
   <div class="subtitle">
     <span class="submenu">
-      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> DO Workforce </span> |
-      <a href="#index-all" target="_self">All Departments</a> &#8226;
-      <a href="#index-dv" target="_self">Delivery [CPS, PSE, SD]</a>
+      <button
+        class="sidenav-trigger"
+        type="button"
+        onclick="openNav()"
+        aria-label="Open main navigation"
+        title="Open main navigation">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <span class="quick-links" data-quick-links>
+        <button
+          class="quick-links-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="index-quick-links"
+          aria-label="Open page quick links"
+          title="Jump to">
+          <span>DO Workforce</span>
+          <svg class="quick-links-chevron" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="m3 6 5 5 5-5"></path>
+          </svg>
+        </button>
+        <span id="index-quick-links" class="quick-links-menu" role="menu" aria-hidden="true">
+          <a href="#index-all" target="_self" role="menuitem">All Departments</a>
+          <a href="#index-dv" target="_self" role="menuitem">Delivery [CPS, PSE, SD]</a>
+          <a href="#index-dept" target="_self" role="menuitem">Per Department</a>
+          <a href="#index-project" target="_self" role="menuitem">Project / Product</a>
+        </span>
+      </span>
     </span>
-    <span class="subbtn">
-      <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BE5121AEA-3700-4875-85EF-5058B984DD9E%7D&file=DO%20Workforce%20-%20Master.xlsx&action=default&mobileredirect=true" target="_blank">
-        <img src="svg/menu-excel.svg" alt="background">
+    <span class="subbtn subactions">
+      <a class="quarter-history-link" href="https://wedo-rm.github.io/workforce-2026-q2/" target="_blank" rel="noopener noreferrer" title="Previous quarter: Q2/2026" aria-label="Open previous quarter Q2/2026 in a new tab">
+        <svg class="quarter-history-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+          <path d="M3 4v6h6"></path>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+      </a>
+      <span class="subaction-divider" aria-hidden="true"></span>
+      <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BE5121AEA-3700-4875-85EF-5058B984DD9E%7D&file=DO%20Workforce%20-%20Master.xlsx&action=default&mobileredirect=true" target="_blank" rel="noopener noreferrer" title="Workforce data input file" aria-label="Open workforce data input file in a new tab">
+        <img src="svg/menu-excel.svg" alt="">
       </a>
     </span>
   </div>

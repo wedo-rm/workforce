@@ -394,7 +394,13 @@ function configureHistoricalTimelineColors(config) {
   config.options.plugins.legend.labels ||= {};
   const existingGenerateLabels =
     config.options.plugins.legend.labels.generateLabels ||
-    NativeChart.defaults.plugins.legend.labels.generateLabels;
+    NativeChart.defaults?.plugins?.legend?.labels?.generateLabels ||
+    ((chart) => chart.data.datasets.map((dataset, datasetIndex) => ({
+      text: dataset.label || '',
+      datasetIndex,
+      fillStyle: dataset.backgroundColor,
+      strokeStyle: dataset.borderColor
+    })));
 
   config.options.plugins.legend.labels.generateLabels = (chart) =>
     existingGenerateLabels(chart).map((legendItem) => {
@@ -418,7 +424,7 @@ const AVAILABLE_ZERO_COLOR = '#a5a5a5';
 const AVAILABLE_NEGATIVE_COLOR = '#7030a0';
 
 function configureAvailableStatusColors(config) {
-  const titleText = String(config.options.plugins.title?.text || '').toUpperCase();
+  const titleText = String(config.options.plugins?.title?.text || '').toUpperCase();
   const labels = config.data.labels || [];
 
   if (!titleText.includes('AVAILABLE') || !titleText.includes('MONTH')) {
@@ -475,7 +481,13 @@ function configureAvailableStatusColors(config) {
   config.options.plugins.legend.labels ||= {};
   const existingGenerateLabels =
     config.options.plugins.legend.labels.generateLabels ||
-    NativeChart.defaults.plugins.legend.labels.generateLabels;
+    NativeChart.defaults?.plugins?.legend?.labels?.generateLabels ||
+    ((chart) => chart.data.datasets.map((dataset, datasetIndex) => ({
+      text: dataset.label || '',
+      datasetIndex,
+      fillStyle: dataset.backgroundColor,
+      strokeStyle: dataset.borderColor
+    })));
 
   config.options.plugins.legend.labels.generateLabels = (chart) =>
     existingGenerateLabels(chart).map((legendItem) => ({
@@ -486,19 +498,33 @@ function configureAvailableStatusColors(config) {
 }
 
 function configurePercentPlanUnits(config) {
-  const titleText = String(config.options.plugins.title?.text || '').toUpperCase();
+  const titleText = String(config.options.plugins?.title?.text || '').toUpperCase();
 
   if (!titleText.includes('%') || !titleText.includes('PLAN')) {
     return;
   }
 
   const planColor = '#ed7d32';
+  const overCapacityColor = '#c65911';
   const formatPercent = (value) => `${formatNumberMaxTwoDecimals(value)}%`;
   const labels = config.data.labels || [];
-  const colorForIndex = (dataIndex) =>
-    isHistoricalQuarterLabel(labels[dataIndex])
-      ? mixColorWithWhite(planColor, 0.5)
+  const numericValueAt = (dataset, dataIndex) => {
+    const rawValue = dataset.data?.[dataIndex];
+    const value = rawValue && typeof rawValue === 'object'
+      ? rawValue.y ?? rawValue.value
+      : rawValue;
+
+    return Number(value);
+  };
+  const colorForIndex = (dataset, dataIndex) => {
+    const baseColor = numericValueAt(dataset, dataIndex) > 100
+      ? overCapacityColor
       : planColor;
+
+    return isHistoricalQuarterLabel(labels[dataIndex])
+      ? mixColorWithWhite(baseColor, 0.5)
+      : baseColor;
+  };
 
   for (const dataset of config.data.datasets) {
     dataset.datalabels ||= {};
@@ -512,14 +538,14 @@ function configurePercentPlanUnits(config) {
     dataset.backgroundColor = planColor;
     dataset.segment = {
       ...(dataset.segment || {}),
-      borderColor: (context) => colorForIndex(context.p1DataIndex)
+      borderColor: (context) => colorForIndex(dataset, context.p1DataIndex)
     };
-    dataset.pointBorderColor = (context) => colorForIndex(context.dataIndex);
-    dataset.pointBackgroundColor = (context) => colorForIndex(context.dataIndex);
-    dataset.hoverBorderColor = (context) => colorForIndex(context.dataIndex);
-    dataset.hoverBackgroundColor = (context) => colorForIndex(context.dataIndex);
+    dataset.pointBorderColor = (context) => colorForIndex(dataset, context.dataIndex);
+    dataset.pointBackgroundColor = (context) => colorForIndex(dataset, context.dataIndex);
+    dataset.hoverBorderColor = (context) => colorForIndex(dataset, context.dataIndex);
+    dataset.hoverBackgroundColor = (context) => colorForIndex(dataset, context.dataIndex);
     dataset.datalabels.backgroundColor = null;
-    dataset.datalabels.color = (context) => colorForIndex(context.dataIndex);
+    dataset.datalabels.color = (context) => colorForIndex(dataset, context.dataIndex);
   }
 
   config.options.scales ||= {};
@@ -540,7 +566,13 @@ function configurePercentPlanUnits(config) {
   config.options.plugins.legend.labels ||= {};
   const existingGenerateLabels =
     config.options.plugins.legend.labels.generateLabels ||
-    NativeChart.defaults.plugins.legend.labels.generateLabels;
+    NativeChart.defaults?.plugins?.legend?.labels?.generateLabels ||
+    ((chart) => chart.data.datasets.map((dataset, datasetIndex) => ({
+      text: dataset.label || '',
+      datasetIndex,
+      fillStyle: dataset.backgroundColor,
+      strokeStyle: dataset.borderColor
+    })));
 
   config.options.plugins.legend.labels.generateLabels = (chart) =>
     existingGenerateLabels(chart).map((legendItem) => ({

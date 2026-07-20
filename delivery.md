@@ -1,19 +1,20 @@
 <head>
   <base target="_blank">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.14.3/dist/xlsx.full.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/0.7.0/chartjs-plugin-datalabels.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <script src="js/summary.js" type="module"></script>
+  <script src="js/back-to-top.js" type="module"></script>
   <script src="js/chart-delivery.js" type="module"></script>
   <script src="js/sidenav.js" type="text/javascript"></script>
+  <script src="js/quick-links.js" type="text/javascript"></script>
 </head>
 
 <body class="body-main">
 
   <div id="mainSidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#" target="_self" class="closebtn" onclick="closeNav(); return false;" aria-label="Close navigation">&times;</a>
     <a href="index">SCG Digital</a>
     <a href="cps">Commercial Products & Solutions</a>
     <a href="pse">Platform & Software Engineering</a>
@@ -24,117 +25,65 @@
   </div>
   
   <div class="subtitle">
-    <span class="submenu" onclick="openNav()"><span style="font-size:30px;">&#9776;</span> Delivery Workforce </span>
-    <span class="subbtn">
-      <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BE5121AEA-3700-4875-85EF-5058B984DD9E%7D&file=DO%20Workforce%20-%20Master.xlsx&action=default&mobileredirect=true" target="_blank">
-        <img src="svg/menu-excel.svg" alt="background">
+    <span class="submenu">
+      <button
+        class="sidenav-trigger"
+        type="button"
+        onclick="openNav()"
+        aria-label="Open main navigation"
+        title="Open main navigation">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <span class="quick-links" data-quick-links>
+        <button
+          class="quick-links-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="delivery-quick-links"
+          aria-label="Open page quick links"
+          title="Jump to">
+          <span>Delivery Workforce</span>
+          <svg class="quick-links-chevron" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="m3 6 5 5 5-5"></path>
+          </svg>
+        </button>
+        <span id="delivery-quick-links" class="quick-links-menu" role="menu" aria-hidden="true">
+          <a class="quick-link-label" href="#index-dept-cps" target="_self" role="menuitem">
+            <strong>CPS</strong>
+            <span>Commercial Products & Solutions</span>
+          </a>
+          <a class="quick-link-label" href="#index-dept-pse" target="_self" role="menuitem">
+            <strong>PSE</strong>
+            <span>Platform & Software Engineering</span>
+          </a>
+          <a class="quick-link-label" href="#index-dept-sd" target="_self" role="menuitem">
+            <strong>SD</strong>
+            <span>Solution Delivery</span>
+          </a>
+        </span>
+      </span>
+    </span>
+    <span class="subbtn subactions">
+      <a class="quarter-history-link" href="https://wedo-rm.github.io/workforce-2026-q2/delivery" target="_blank" rel="noopener noreferrer" title="Previous quarter: Q2/2026" aria-label="Open previous quarter Q2/2026 in a new tab">
+        <svg class="quarter-history-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+          <path d="M3 4v6h6"></path>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+      </a>
+      <span class="subaction-divider" aria-hidden="true"></span>
+      <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BE5121AEA-3700-4875-85EF-5058B984DD9E%7D&amp;file=DO%20Workforce%20-%20Master.xlsx&amp;action=default&amp;mobileredirect=true" target="_blank" rel="noopener noreferrer" title="Workforce data input file" aria-label="Open workforce data input file in a new tab">
+        <img src="svg/menu-excel.svg" alt="">
       </a>
     </span>
   </div>
-  
+
   <div class="section">
-    <div class="chart rounded-div">
-      <div class="chartheaderleft">
-        Delivery Summary Q2/2026
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 88.48%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณคน > ปริมาณงาน (diff average รายปี)
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-qa">SD-QA</a> 106.10%<br>
-            <a href="sd#sd-sect-sre">SD-SRE</a> 104.21%<br>
-            <a href="sd#sd-sect-tm">SD-TM</a> 103.52%
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-design">SD-Design</a> 69.24% <span class="text-avai">[Available 30.76%]</span> 
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
-          <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+7.1 FTE</span><br>
-            <a href="sd#sd-sect-data">SD-Data</a> <span class="text-avai">+1.7 FTE</span>
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Average Plan</div>
-          <div class="chartsubbodydata">
-            88.48 % (Available ~ <span class="text-avai">+13 FTE</span> per month)
-          </div>
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q2 2026 <span class="text-plan">[Plan 97.06%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-        &#8226;&ensp;May มีปริมาณ Plan FTE สูงสุด [98.51%] เนื่องจากมีงานเข้ามาแน่นอนแล้วในช่วงปัจจุบัน
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-sre">SD-SRE</a> 125.08%<br>
-            <a href="sd#sd-sect-qa">SD-QA</a> 105.79%<br>
-            <a href="cps#cps-sect-bd">CPS-BD</a> 103.94%<br>
-            <a href="sd#sd-sect-ba">SD-BA</a> 103.125%
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-tm">SD-TM</a> 78.08% <span class="text-avai">[Available 21.92%]</span>
-          </div>
-        </div>
-          <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
-          <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai">+2.63 FTE</span><br>
-            <a href="sd#sd-sect-data">SD-Data</a> <span class="text-avai">+0.92 FTE</span>
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ยังเป็นตัวเลขที่สามารถจัดการได้ โดยทีมที่พนักงานเกิน (PSE-SE) สามารถโยกมาทำ Internal Project ได้
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ส่วนทีมที่พนักงานขาด (SD-SRE) กำลังอยู่ในช่วงการสรรหาพนักงานใหม่มาเพิ่มเติม
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q1 2027 <span class="text-plan">[Plan 70.33%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;Available เป็นจำนวนมาก เกิดจากความไม่แน่นอนในโปรเจคใหม่ที่จะเข้ามาในปีหน้า รวมถึงมีโปรเจคที่จบตั้งแต่ปี 2026 และยังไม่มีแผนขยาย
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Allocation</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-tm">SD-TM</a> 130%
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Available</div>
-          <div class="chartsubbodydata">
-            <a href="sd#sd-sect-pm">SD-PM</a> 25% <span class="text-avai">[Available 75%]</span><br>
-            <a href="sd#sd-sect-design">SD-Design</a> 27.86% <span class="text-avai">[Available 72.14%]</span>
-          </div>
-        </div>
-        <div class="chartsubbodycontainer">
-          <div class="chartsubbodytitle">&#8226;&ensp;Top Diff FTE</div>
-          <div class="chartsubbodydata">
-            <a href="pse#pse-sect-se">PSE-SE</a> <span class="text-avai"> +16.35 FTE</span>
-          </div>
-        </div>
-      </div>
+    <div
+      id="summary-delivery"
+      class="chart rounded-div"
+      data-summary-page="delivery"
+      data-summary-header-class="chartheaderleft">
     </div>
     <div class="chart rounded-div" id="index-planactual">
       <canvas id="workforceChartDVPlanActual"></canvas>
@@ -155,18 +104,18 @@
             </div>
         </div>
     </div>
-  </div>
-    
-  <div class="section" id="index-resource">
-    Per Resource Type
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDVPR"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDVCT"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartDVOS"></canvas>
+    <div class="resource-type-block" id="index-resource">
+      <div class="resource-type-grid">
+      <div class="chart rounded-div resource-type-chart">
+        <canvas id="workforceChartDVPR"></canvas>
+      </div>
+      <div class="chart rounded-div resource-type-chart">
+        <canvas id="workforceChartDVCT"></canvas>
+      </div>
+      <div class="chart rounded-div resource-type-chart">
+        <canvas id="workforceChartDVOS"></canvas>
+      </div>
+      </div>
     </div>
   </div>
   
@@ -200,6 +149,12 @@
     </div>
   </div>
   
+  <button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+    title="Back to top">&#8593;</button>
   <iframe src="footer.html"></iframe>
 
 </body>

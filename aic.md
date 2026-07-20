@@ -1,18 +1,19 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.14.3/dist/xlsx.full.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/0.7.0/chartjs-plugin-datalabels.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <script src="js/summary.js" type="module"></script>
+  <script src="js/back-to-top.js" type="module"></script>
   <script src="js/chart-aic.js" type="module"></script>
   <script src="js/sidenav.js" type="text/javascript"></script>
+  <script src="js/quick-links.js" type="text/javascript"></script>
 </head>
 
 <body class="body-main">
 
   <div id="mainSidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#" target="_self" class="closebtn" onclick="closeNav(); return false;" aria-label="Close navigation">&times;</a>
     <a href="index">SCG Digital</a>
     <a href="cps">Commercial Products & Solutions</a>
     <a href="pse">Platform & Software Engineering</a>
@@ -23,87 +24,75 @@
   
   <div class="subtitle">
     <span class="submenu">
-      <span onclick="openNav()"><span style="font-size:30px;">&#9776;</span> AIC Workforce </span> |
-      <a href="aic#aic-sect-ra"> R&A</a> &#8226;
-      <a href="aic#aic-sect-aie">AIE</a> &#8226;
-      <a href="aic#aic-sect-iot">IoT</a> &#8226;
-      <a href="aic#aic-sect-sai">SAI</a> &#8226;
-      <a href="aic#aic-sect-pi"> PI</a>
+      <button
+        class="sidenav-trigger"
+        type="button"
+        onclick="openNav()"
+        aria-label="Open main navigation"
+        title="Open main navigation">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <span class="quick-links" data-quick-links>
+        <button
+          class="quick-links-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="aic-quick-links"
+          aria-label="Open page quick links"
+          title="Jump to">
+          <span>AIC Workforce</span>
+          <svg class="quick-links-chevron" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="m3 6 5 5 5-5"></path>
+          </svg>
+        </button>
+        <span id="aic-quick-links" class="quick-links-menu" role="menu" aria-hidden="true">
+          <a class="quick-link-label" href="#aic-sect-ra" target="_self" role="menuitem">
+            <strong>R&A</strong>
+            <span>AI Research & Alliance</span>
+          </a>
+          <a class="quick-link-label" href="#aic-sect-aie" target="_self" role="menuitem">
+            <strong>AIE</strong>
+            <span>AIET AI Engineering</span>
+          </a>
+          <a class="quick-link-label" href="#aic-sect-iot" target="_self" role="menuitem">
+            <strong>IoT</strong>
+            <span>AIET IoT Engineering</span>
+          </a>
+          <a class="quick-link-label" href="#aic-sect-sai" target="_self" role="menuitem">
+            <strong>SAI</strong>
+            <span>AIET Spatial AI Engineering</span>
+          </a>
+          <a class="quick-link-label" href="#aic-sect-pi" target="_self" role="menuitem">
+            <strong>PI</strong>
+            <span>Product Innovation</span>
+          </a>
+        </span>
+      </span>
     </span>
-    <span class="subbtn">
-      <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BD68329D4-3D1A-4AEA-BD0D-DD0EF3E5B83E%7D&file=DO%20Workforce%20-%205%20AIC.xlsx&action=default&mobileredirect=true" target="_blank">
-        <img src="svg/menu-excel.svg" alt="background">
+    <span class="subbtn subactions">
+      <a class="quarter-history-link" href="https://wedo-rm.github.io/workforce-2026-q2/aic" target="_blank" rel="noopener noreferrer" title="Previous quarter: Q2/2026" aria-label="Open previous quarter Q2/2026 in a new tab">
+        <svg class="quarter-history-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+          <path d="M3 4v6h6"></path>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+      </a>
+      <span class="subaction-divider" aria-hidden="true"></span>
+      <a class="suburl" href="https://scgo365.sharepoint.com/:x:/r/sites/DO-ResourceManagement781-2026/_layouts/15/Doc.aspx?sourcedoc=%7BD68329D4-3D1A-4AEA-BD0D-DD0EF3E5B83E%7D&amp;file=DO%20Workforce%20-%205%20AIC.xlsx&amp;action=default&amp;mobileredirect=true" target="_blank" rel="noopener noreferrer" title="Workforce data input file" aria-label="Open workforce data input file in a new tab">
+        <img src="svg/menu-excel.svg" alt="">
       </a>
     </span>
   </div>
-  
+
   <div class="section">
-    <!-- start summary -->
-    <div class="chart rounded-div">
-      <div class="chartheaderleft">
-        AIC Workforce Summary Q2/2026
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;Q2 2026 – Q1 2027 <span class="text-plan">[Plan 68.23%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ภาพรวม กราฟ Plan ลงเป็นระนาบเดียวกัน เนื่องจากความไม่แน่นอนในอนาคต
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;งานที่จะรับจากทาง AE/BD ยังมีความไม่แน่นอน และไม่แน่ใจจะเริ่มเมื่อไหร่
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;จำนวนพนักงานในปัจจุบัน ยังสามารถรองรับงานที่จะเข้ามาในอนาคตได้
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;Note: ไม่มีพนักงานภายใต้ Product Innovation แล้ว นับตั้งแต่ Q2/2026 เป็นต้นมา
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;<a href="aic#aic-sect-aie">AIET AI Engineering</a> <span class="text-plan">[Plan 62.62%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณคนมากกว่าปริมาณงาน โดยมีส่วนต่างสูงสุดอยู่ที่ Q1/2027 โดยมีการ Plan อยู่ที่ 46.06% <span class="text-avai">[Available +4.3 FTE]</span>
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;งานที่จะรับจากทาง AE/BD ยังมีความไม่แน่นอน และไม่แน่ใจจะเริ่มเมื่อไหร่
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;Plan สำหรับการทำ Research & Explore ประมาณ 0.05 FTE สำหรับพนักงาน 1 คน ต่อเดือน
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;<a href="aic#aic-sect-iot">AIET IoT Engineering</a> <span class="text-plan">[Plan 67.62%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณคนมากกว่าปริมาณงาน โดยมีส่วนต่างสูงสุดอยู่ที่ Q1/2027 โดยมีการ Plan อยู่ที่ 28.00% <span class="text-avai">[Available +3.6 FTE]</span>
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;งานพาร์ท IoT ส่วนใหญ่จะจบจบภายในปี 2026
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;Plan สำหรับการทำ Research & Explore ประมาณ 0.05 FTE สำหรับพนักงาน 1 คน ต่อเดือน
-        </div>
-      </div>
-      <div class="chartbody">
-        &#8227;&ensp;<a href="aic#aic-sect-sai">AIET Spatial AI Engineering</a> <span class="text-plan">[Plan 58.92%]</span>
-      </div>
-      <div class="chartsubbody">
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ปริมาณคนมากกว่าปริมาณงาน โดยมีส่วนต่างสูงสุดอยู่ที่ Q1/2027 โดยมีการ Plan อยู่ที่ 10.00% <span class="text-avai">[Available +3.6 FTE]</span>
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;ประเมิน Plan จากหัวข้อ Research ที่ดูแลอยู่ในปัจจุบันเท่านั้น ซึ่งงานส่วนใหญ่จะจบภายในสิ้นปี 2026
-        </div>
-        <div class="chartsubbodycontainer">
-          &#8226;&ensp;สำหรับหัวข้อ Research ในปี 2027 จะดูปลาย Q3 ว่าจะลง Research ในส่วนไหน ซึ่งข้อมูลการ Plan อาจะมีการเปลี่ยนแปลงในรอบการประเมินถัดไป
-        </div>
-      </div>
+    <!-- SUMMARY START -->
+    <div
+      id="summary-aic"
+      class="chart rounded-div"
+      data-summary-page="aic"
+      data-summary-header-class="chartheaderleft">
     </div>
-    <!-- end summary -->
+    <!-- SUMMARY END -->
     <div class="chart rounded-div" id="aic-main-mth">
       <canvas id="workforceChartAIC"></canvas>
     </div>
@@ -120,18 +109,18 @@
             </div>
         </div>
     </div>
-  </div>
-    
-  <div class="section" id="aic-resource">
-    Per Resource Type
-    <div class="chart rounded-div">
-      <canvas id="workforceChartAICPR"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartAICCT"></canvas>
-    </div>
-    <div class="chart rounded-div">
-      <canvas id="workforceChartAICOS"></canvas>
+    <div class="resource-type-block" id="aic-resource">
+      <div class="resource-type-grid">
+      <div class="chart rounded-div resource-type-chart">
+        <canvas id="workforceChartAICPR"></canvas>
+      </div>
+      <div class="chart rounded-div resource-type-chart">
+        <canvas id="workforceChartAICCT"></canvas>
+      </div>
+      <div class="chart rounded-div resource-type-chart">
+        <canvas id="workforceChartAICOS"></canvas>
+      </div>
+      </div>
     </div>
   </div>
 
@@ -220,6 +209,12 @@
     </div>
   </div>
   
+  <button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+    title="Back to top">&#8593;</button>
   <iframe src="footer.html"></iframe>
   
 </body>

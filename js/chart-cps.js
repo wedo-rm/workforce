@@ -488,12 +488,26 @@ function configurePercentPlanUnits(config) {
   }
 
   const planColor = '#ed7d32';
+  const overCapacityColor = '#c65911';
   const formatPercent = (value) => `${formatNumberMaxTwoDecimals(value)}%`;
   const labels = config.data.labels || [];
-  const colorForIndex = (dataIndex) =>
-    isHistoricalQuarterLabel(labels[dataIndex])
-      ? mixColorWithWhite(planColor, 0.5)
+  const numericValueAt = (dataset, dataIndex) => {
+    const rawValue = dataset.data?.[dataIndex];
+    const value = rawValue && typeof rawValue === 'object'
+      ? rawValue.y ?? rawValue.value
+      : rawValue;
+
+    return Number(value);
+  };
+  const colorForIndex = (dataset, dataIndex) => {
+    const baseColor = numericValueAt(dataset, dataIndex) > 100
+      ? overCapacityColor
       : planColor;
+
+    return isHistoricalQuarterLabel(labels[dataIndex])
+      ? mixColorWithWhite(baseColor, 0.5)
+      : baseColor;
+  };
 
   for (const dataset of config.data.datasets) {
     dataset.datalabels ||= {};
@@ -507,14 +521,14 @@ function configurePercentPlanUnits(config) {
     dataset.backgroundColor = planColor;
     dataset.segment = {
       ...(dataset.segment || {}),
-      borderColor: (context) => colorForIndex(context.p1DataIndex)
+    borderColor: (context) => colorForIndex(dataset, context.p1DataIndex)
     };
-    dataset.pointBorderColor = (context) => colorForIndex(context.dataIndex);
-    dataset.pointBackgroundColor = (context) => colorForIndex(context.dataIndex);
-    dataset.hoverBorderColor = (context) => colorForIndex(context.dataIndex);
-    dataset.hoverBackgroundColor = (context) => colorForIndex(context.dataIndex);
+    dataset.pointBorderColor = (context) => colorForIndex(dataset, context.dataIndex);
+    dataset.pointBackgroundColor = (context) => colorForIndex(dataset, context.dataIndex);
+    dataset.hoverBorderColor = (context) => colorForIndex(dataset, context.dataIndex);
+    dataset.hoverBackgroundColor = (context) => colorForIndex(dataset, context.dataIndex);
     dataset.datalabels.backgroundColor = null;
-    dataset.datalabels.color = (context) => colorForIndex(context.dataIndex);
+    dataset.datalabels.color = (context) => colorForIndex(dataset, context.dataIndex);
   }
 
   config.options.scales ||= {};
