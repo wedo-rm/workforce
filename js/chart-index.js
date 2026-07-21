@@ -1494,6 +1494,212 @@ function renderAllCharts(workbook) {
     );
   }
 
+  function renderDepartmentDemandScenario(department, startRow) {
+    const monthlyCanvas = document.getElementById(
+      `workforceChart${department}DemandScenario`
+    );
+    const quarterCanvas = document.getElementById(
+      `workforceChart${department}DemandPlanQtr`
+    );
+    const monthlyDataStartRow = startRow + 1;
+    const monthlyDataEndRow = startRow + 3;
+    const quarterDataStartRow = startRow + 2;
+    const quarterDataEndRow = startRow + 3;
+
+    new Chart(monthlyCanvas, {
+      type: 'line',
+      displayColors: true,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      data: {
+        datasets: [{
+          borderWidth: 2,
+          borderColor: 'rgba(68, 114, 196)',
+          backgroundColor: 'rgba(68, 114, 196)',
+          fill: false,
+          pointRadius: 3,
+          datalabels: {
+            display: false
+          }
+        }, {
+          borderWidth: 2,
+          borderColor: 'rgba(237, 125, 50)',
+          backgroundColor: 'rgba(237, 125, 50)',
+          fill: false,
+          pointRadius: 3,
+          datalabels: {
+            display: false
+          }
+        }, {
+          borderWidth: 2,
+          borderColor: 'rgba(237, 125, 50)',
+          backgroundColor: 'rgba(237, 125, 50)',
+          borderDash: [6, 4],
+          fill: false,
+          pointRadius: 2,
+          pointStyle: 'rectRot',
+          datalabels: {
+            display: false
+          }
+        }]
+      },
+      plugins: [ChartDataSource],
+      options: {
+        title: {
+          display: true,
+          fontSize: 14,
+          text: `${department} Demand Scenario per Month`,
+          padding: 20,
+          fontColor: '#616161'
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            usePointStyle: true
+          }
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          titleFontSize: 10,
+          position: 'nearest'
+        },
+        responsive: true,
+        scales: {
+          x: {
+            stacked: false,
+            offset: true,
+            grid: {
+              offset: true
+            }
+          },
+          y: {
+            stacked: false,
+            beginAtZero: false
+          }
+        },
+        plugins: {
+          datasource: {
+            url: 'workforceresult.xlsx',
+            type: 'sheet',
+            datasetLabels: `Graph-Demand!A${monthlyDataStartRow}:A${monthlyDataEndRow}`,
+            indexLabels: `Graph-Demand!B${startRow}:P${startRow}`,
+            data: `Graph-Demand!B${monthlyDataStartRow}:P${monthlyDataEndRow}`
+          },
+          datalabels: {
+            display: false
+          }
+        }
+      }
+    });
+
+    new Chart(quarterCanvas, {
+      type: 'line',
+      displayColors: true,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      data: {
+        datasets: [{
+          borderWidth: 2,
+          borderColor: 'rgba(237, 125, 50)',
+          backgroundColor: 'rgba(237, 125, 50)',
+          fill: false,
+          pointRadius: 3,
+          datalabels: {
+            align: 'bottom',
+            anchor: 'end',
+            offset: 3,
+            padding: 2
+          }
+        }, {
+          borderWidth: 2,
+          borderColor: 'rgba(237, 125, 50)',
+          backgroundColor: 'rgba(237, 125, 50)',
+          borderDash: [6, 4],
+          fill: false,
+          pointRadius: 2,
+          pointStyle: 'rectRot',
+          datalabels: {
+            display: (context) => {
+              const weightedValue = context.chart.data.datasets[0]
+                ?.data?.[context.dataIndex];
+              const unweightedValue = context.dataset.data?.[context.dataIndex];
+              return Number(weightedValue) !== Number(unweightedValue);
+            },
+            align: 'top',
+            anchor: 'end',
+            offset: 3,
+            padding: 2
+          }
+        }]
+      },
+      plugins: [ChartDataSource],
+      options: {
+        title: {
+          display: true,
+          fontSize: 14,
+          text: `% ${department} Plan Scenario per Quarter`,
+          padding: 20,
+          fontColor: '#616161'
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            usePointStyle: true
+          }
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          titleFontSize: 10,
+          position: 'nearest'
+        },
+        responsive: true,
+        scales: {
+          x: {
+            stacked: false,
+            offset: true,
+            grid: {
+              offset: true
+            }
+          },
+          y: {
+            stacked: false,
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          datasource: {
+            url: 'workforceresult.xlsx',
+            type: 'sheet',
+            datasetLabels: `Graph-Demand!AA${quarterDataStartRow}:AA${quarterDataEndRow}`,
+            indexLabels: `Graph-Demand!AB${startRow}:AF${startRow}`,
+            data: `Graph-Demand!AB${quarterDataStartRow}:AF${quarterDataEndRow}`
+          },
+          datalabels: {
+            formatter: Math.round,
+            color: 'rgba(197, 90, 17)',
+            padding: 0
+          }
+        }
+      }
+    });
+  }
+
+  [
+    ['CPS', 21],
+    ['PSE', 51],
+    ['SD', 81],
+    ['AIC', 181],
+    ['TDE', 241]
+  ].forEach(([department, startRow]) => {
+    renderDepartmentDemandScenario(department, startRow);
+  });
+
   
   const actions = [{
       name: 'Mode: index',
@@ -1734,6 +1940,193 @@ function renderAllCharts(workbook) {
                   borderRadius: 4,
                   //formatter: Math.round,
                   color: 'white',
+                  padding: 0
+              }
+          }
+      }
+  });
+
+  /*
+  /* DEMAND SCENARIO - MONTH
+  */
+
+  const ctxDemandScenario = document.getElementById('workforceChartDODemandScenario');
+  new Chart(ctxDemandScenario, {
+      type: 'line',
+      displayColors: true,
+      interaction: {
+          mode: 'index',
+          intersect: false
+      },
+      data: {
+          datasets: [{
+              borderWidth: 2,
+              borderColor: 'rgba(68, 114, 196)',
+              backgroundColor: 'rgba(68, 114, 196)',
+              fill: false,
+              pointRadius: 3,
+              datalabels: {
+                  display: false
+              }
+          }, {
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              fill: false,
+              pointRadius: 3,
+              datalabels: {
+                  display: false
+              }
+          }, {
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              borderDash: [6, 4],
+              fill: false,
+              pointRadius: 2,
+              pointStyle: 'rectRot',
+              datalabels: {
+                  display: false
+              }
+          }]
+      },
+      plugins: [ChartDataSource],
+      options: {
+          title: {
+              display: true,
+              fontSize: 14,
+              text: 'Demand Scenario per Month',
+              padding: 20,
+              fontColor: '#616161'
+          },
+          legend: {
+              position: 'bottom',
+              labels: {
+                  usePointStyle: true
+              }
+          },
+          tooltips: {
+              mode: 'index',
+              intersect: false,
+              titleFontSize: 10,
+              position: 'nearest'
+          },
+          responsive: true,
+          scales: {
+              x: {
+                  stacked: false,
+                  offset: true,
+                  grid: {
+                      offset: true
+                  }
+              },
+              y: {
+                  stacked: false,
+                  beginAtZero: false
+              }
+          },
+          plugins: {
+              datasource: {
+                  url: 'workforceresult.xlsx',
+                  type: 'sheet',
+                  datasetLabels: 'Graph-Demand!A2:A4',
+                  indexLabels: 'Graph-Demand!B1:P1',
+                  data: 'Graph-Demand!B2:P4'
+              },
+              datalabels: {
+                  display: false
+              }
+          }
+      }
+  });
+
+  /*
+  /* % PLAN DEMAND SCENARIO - QUARTER
+  */
+
+  const ctxDemandPlanQtr = document.getElementById('workforceChartDODemandPlanQtr');
+  new Chart(ctxDemandPlanQtr, {
+      type: 'line',
+      displayColors: true,
+      interaction: {
+          mode: 'index',
+          intersect: false
+      },
+      data: {
+          datasets: [{
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              fill: false,
+              pointRadius: 3,
+              datalabels: {
+                  align: 'bottom',
+                  anchor: 'end',
+                  offset: 3,
+                  padding: 2
+              }
+          }, {
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              borderDash: [6, 4],
+              fill: false,
+              pointRadius: 2,
+              pointStyle: 'rectRot',
+              datalabels: {
+                  align: 'top',
+                  anchor: 'end',
+                  offset: 3,
+                  padding: 2
+              }
+          }]
+      },
+      plugins: [ChartDataSource],
+      options: {
+          title: {
+              display: true,
+              fontSize: 14,
+              text: '% Plan Scenario per Quarter',
+              padding: 20,
+              fontColor: '#616161'
+          },
+          legend: {
+              position: 'bottom',
+              labels: {
+                  usePointStyle: true
+              }
+          },
+          tooltips: {
+              mode: 'index',
+              intersect: false,
+              titleFontSize: 10,
+              position: 'nearest'
+          },
+          responsive: true,
+          scales: {
+              x: {
+                  stacked: false,
+                  offset: true,
+                  grid: {
+                      offset: true
+                  }
+              },
+              y: {
+                  stacked: false,
+                  beginAtZero: true
+              }
+          },
+          plugins: {
+              datasource: {
+                  url: 'workforceresult.xlsx',
+                  type: 'sheet',
+                  datasetLabels: 'Graph-Demand!AA3:AA4',
+                  indexLabels: 'Graph-Demand!AB1:AF1',
+                  data: 'Graph-Demand!AB3:AF4'
+              },
+              datalabels: {
+                  formatter: Math.round,
+                  color: 'rgba(197, 90, 17)',
                   padding: 0
               }
           }
@@ -4294,6 +4687,193 @@ function renderAllCharts(workbook) {
                   borderRadius: 4,
                   //formatter: Math.round,
                   color: 'white',
+                  padding: 0
+              }
+          }
+      }
+  });
+
+  /*
+  /* DEMAND SCENARIO - MONTH : DELIVERY
+  */
+
+  const ctxdvDemandScenario = document.getElementById('workforceChartDVDemandScenario');
+  new Chart(ctxdvDemandScenario, {
+      type: 'line',
+      displayColors: true,
+      interaction: {
+          mode: 'index',
+          intersect: false
+      },
+      data: {
+          datasets: [{
+              borderWidth: 2,
+              borderColor: 'rgba(68, 114, 196)',
+              backgroundColor: 'rgba(68, 114, 196)',
+              fill: false,
+              pointRadius: 3,
+              datalabels: {
+                  display: false
+              }
+          }, {
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              fill: false,
+              pointRadius: 3,
+              datalabels: {
+                  display: false
+              }
+          }, {
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              borderDash: [6, 4],
+              fill: false,
+              pointRadius: 2,
+              pointStyle: 'rectRot',
+              datalabels: {
+                  display: false
+              }
+          }]
+      },
+      plugins: [ChartDataSource],
+      options: {
+          title: {
+              display: true,
+              fontSize: 14,
+              text: 'Demand Scenario per Month',
+              padding: 20,
+              fontColor: '#616161'
+          },
+          legend: {
+              position: 'bottom',
+              labels: {
+                  usePointStyle: true
+              }
+          },
+          tooltips: {
+              mode: 'index',
+              intersect: false,
+              titleFontSize: 10,
+              position: 'nearest'
+          },
+          responsive: true,
+          scales: {
+              x: {
+                  stacked: false,
+                  offset: true,
+                  grid: {
+                      offset: true
+                  }
+              },
+              y: {
+                  stacked: false,
+                  beginAtZero: false
+              }
+          },
+          plugins: {
+              datasource: {
+                  url: 'workforceresult.xlsx',
+                  type: 'sheet',
+                  datasetLabels: 'Graph-Demand!A12:A14',
+                  indexLabels: 'Graph-Demand!B11:P11',
+                  data: 'Graph-Demand!B12:P14'
+              },
+              datalabels: {
+                  display: false
+              }
+          }
+      }
+  });
+
+  /*
+  /* % PLAN DEMAND SCENARIO - QUARTER : DELIVERY
+  */
+
+  const ctxdvDemandPlanQtr = document.getElementById('workforceChartDVDemandPlanQtr');
+  new Chart(ctxdvDemandPlanQtr, {
+      type: 'line',
+      displayColors: true,
+      interaction: {
+          mode: 'index',
+          intersect: false
+      },
+      data: {
+          datasets: [{
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              fill: false,
+              pointRadius: 3,
+              datalabels: {
+                  align: 'bottom',
+                  anchor: 'end',
+                  offset: 3,
+                  padding: 2
+              }
+          }, {
+              borderWidth: 2,
+              borderColor: 'rgba(237, 125, 50)',
+              backgroundColor: 'rgba(237, 125, 50)',
+              borderDash: [6, 4],
+              fill: false,
+              pointRadius: 2,
+              pointStyle: 'rectRot',
+              datalabels: {
+                  align: 'top',
+                  anchor: 'end',
+                  offset: 3,
+                  padding: 2
+              }
+          }]
+      },
+      plugins: [ChartDataSource],
+      options: {
+          title: {
+              display: true,
+              fontSize: 14,
+              text: '% Plan Scenario per Quarter',
+              padding: 20,
+              fontColor: '#616161'
+          },
+          legend: {
+              position: 'bottom',
+              labels: {
+                  usePointStyle: true
+              }
+          },
+          tooltips: {
+              mode: 'index',
+              intersect: false,
+              titleFontSize: 10,
+              position: 'nearest'
+          },
+          responsive: true,
+          scales: {
+              x: {
+                  stacked: false,
+                  offset: true,
+                  grid: {
+                      offset: true
+                  }
+              },
+              y: {
+                  stacked: false,
+                  beginAtZero: true
+              }
+          },
+          plugins: {
+              datasource: {
+                  url: 'workforceresult.xlsx',
+                  type: 'sheet',
+                  datasetLabels: 'Graph-Demand!AA13:AA14',
+                  indexLabels: 'Graph-Demand!AB1:AF1',
+                  data: 'Graph-Demand!AB13:AF14'
+              },
+              datalabels: {
+                  formatter: Math.round,
+                  color: 'rgba(197, 90, 17)',
                   padding: 0
               }
           }

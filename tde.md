@@ -105,6 +105,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="tde-tde-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartTDEDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartTDEDemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
     <div class="resource-type-block" id="tde-resource">
       <div class="resource-type-grid">
       <div class="chart rounded-div resource-type-chart">
@@ -135,6 +145,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="tde-fi-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartFIDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartFIDemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
   </div>
 
   <div class="section" id="tde-sect-rm">
@@ -149,6 +169,16 @@
             </div>
             <div class="secright">
               <div class="chart rounded-div"><canvas id="workforceChartTDEPlanQtrRM"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="secwrapper">
+        <div class="secrow" id="tde-rm-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartRMDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartRMDemandPlanQtr"></canvas></div>
             </div>
         </div>
     </div>
@@ -169,6 +199,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="tde-ted-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartTEDDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartTEDDemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
   </div>
 
   <div class="section" id="tde-sect-coe">
@@ -183,6 +223,16 @@
             </div>
             <div class="secright">
               <div class="chart rounded-div"><canvas id="workforceChartTDEPlanQtrCoE"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="secwrapper">
+        <div class="secrow" id="tde-coe-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartCoEDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartCoEDemandPlanQtr"></canvas></div>
             </div>
         </div>
     </div>

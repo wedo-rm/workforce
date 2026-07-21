@@ -1,3 +1,5 @@
+import { renderDemandScenarioCharts } from './demand-scenario.js';
+
 /*
  * Full Chart.js 4 migration for the workforce dashboard.
  *
@@ -1457,6 +1459,16 @@ function renderAllCharts(workbook) {
   }
 
   
+  renderDemandScenarioCharts({
+    createChart: (canvas, config) => new Chart(canvas, config),
+    chartDataSource: ChartDataSource,
+    units: [
+      { id: 'PSE', label: 'PSE', startRow: 51 },
+      { id: 'PE', label: 'PE', startRow: 61 },
+      { id: 'SE', label: 'SE', startRow: 71 }
+    ]
+  });
+
   const actions = [{
       name: 'Mode: index',
       handler(chart) {

@@ -30,6 +30,14 @@ function restoreEscapedBrackets(value) {
   return value.replaceAll('\uE000', '[').replaceAll('\uE001', ']');
 }
 
+function appendPlainText(parent, value) {
+  const lines = restoreEscapedBrackets(String(value ?? '')).split(/\r?\n/);
+  lines.forEach((line, index) => {
+    if (index > 0) parent.append(document.createElement('br'));
+    if (line) parent.append(document.createTextNode(line));
+  });
+}
+
 function appendMarkdown(parent, value) {
   const protectedText = String(value ?? '')
     .replace(/\\\[/g, '\uE000')
@@ -40,9 +48,7 @@ function appendMarkdown(parent, value) {
 
   while ((match = tokenPattern.exec(protectedText)) !== null) {
     if (match.index > cursor) {
-      parent.append(document.createTextNode(
-        restoreEscapedBrackets(protectedText.slice(cursor, match.index))
-      ));
+      appendPlainText(parent, protectedText.slice(cursor, match.index));
     }
 
     if (match[2] !== undefined) {
@@ -76,9 +82,7 @@ function appendMarkdown(parent, value) {
   }
 
   if (cursor < protectedText.length) {
-    parent.append(document.createTextNode(
-      restoreEscapedBrackets(protectedText.slice(cursor))
-    ));
+    appendPlainText(parent, protectedText.slice(cursor));
   }
 }
 
@@ -184,6 +188,7 @@ function appendStandaloneChild(parent, row) {
   const suppressBullet = hasNote(row, 'no-bullet') || hasNote(row, 'methodology-item');
 
   if (normalizeText(row.type).toLowerCase() === 'text-inline') {
+    container.classList.add('chartsubbodycontainer--label-data');
     const title = document.createElement('div');
     title.className = 'chartsubbodytitle';
     if (!suppressBullet) appendBullet(title, '\u2022');
@@ -198,14 +203,28 @@ function appendStandaloneChild(parent, row) {
     return;
   }
 
-  if (!suppressBullet) appendBullet(container, '\u2022');
-  appendInlineFields(container, row);
+  if (!suppressBullet) {
+    container.replaceChildren();
+    container.classList.add('chartsubbodycontainer--standalone');
+
+    const bullet = document.createElement('span');
+    bullet.className = 'summary-bullet';
+    appendBullet(bullet, '\u2022');
+
+    const content = document.createElement('span');
+    content.className = 'chartsubbodytext';
+    appendInlineFields(content, row);
+
+    container.append(bullet, content);
+  } else {
+    appendInlineFields(container, row);
+  }
   parent.append(container);
 }
 
 function appendGridBlock(parent, titleRow, itemRows) {
   const container = document.createElement('div');
-  container.className = 'chartsubbodycontainer';
+  container.className = 'chartsubbodycontainer chartsubbodycontainer--grid-block';
   if (!titleRow) container.classList.add('chartsubbodycontainer--grid-only');
 
   if (titleRow) {
@@ -284,9 +303,17 @@ function renderSummary(container, rows) {
 
     for (const row of mainRows) {
       const body = document.createElement('div');
-      body.className = 'chartbody';
-      appendBullet(body, '\u2023');
-      appendInlineFields(body, row);
+      body.className = 'chartbody chartbody--with-bullet';
+
+      const bullet = document.createElement('span');
+      bullet.className = 'summary-bullet';
+      appendBullet(bullet, '\u2023');
+
+      const content = document.createElement('span');
+      content.className = 'chartbodycontent';
+      appendInlineFields(content, row);
+
+      body.append(bullet, content);
       container.append(body);
     }
 
@@ -303,14 +330,42 @@ function renderSummary(container, rows) {
 }
 
 async function loadSummaryRows() {
-  const response = await fetch(SUMMARY_WORKBOOK_URL, { cache: 'no-store' });
-  if (!response.ok) throw new Error(`Unable to load ${SUMMARY_WORKBOOK_URL} (${response.status})`);
+  const workbookUrl = new URL(SUMMARY_WORKBOOK_URL, window.location.href).href;
+  const sheetJsUrl = [...document.scripts]
+    .map((script) => script.src)
+    .find((src) => /xlsx(?:\.full)?\.min\.js(?:\?|$)/.test(src))
+    || 'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js';
+  const workerSource = `
+    self.onmessage = async ({ data }) => {
+      try {
+        importScripts(data.sheetJsUrl);
+        const response = await fetch(data.workbookUrl, { cache: 'no-store' });
+        if (!response.ok) throw new Error('Unable to load workbook (' + response.status + ')');
+        const workbook = XLSX.read(await response.arrayBuffer(), { type: 'array' });
+        const worksheet = workbook.Sheets[data.sheetName];
+        if (!worksheet) throw new Error('Worksheet "' + data.sheetName + '" was not found.');
+        const rows = XLSX.utils.sheet_to_json(worksheet, { defval: '', raw: false });
+        self.postMessage({ ok: true, rows });
+      } catch (error) {
+        self.postMessage({ ok: false, error: error instanceof Error ? error.message : String(error) });
+      }
+    };
+  `;
+  const workerUrl = URL.createObjectURL(new Blob([workerSource], { type: 'text/javascript' }));
+  const worker = new Worker(workerUrl);
 
-  const workbook = XLSX.read(await response.arrayBuffer(), { type: 'array' });
-  const worksheet = workbook.Sheets[SUMMARY_SHEET_NAME];
-  if (!worksheet) throw new Error(`Worksheet "${SUMMARY_SHEET_NAME}" was not found.`);
-
-  return XLSX.utils.sheet_to_json(worksheet, { defval: '', raw: false });
+  try {
+    return await new Promise((resolve, reject) => {
+      worker.onmessage = ({ data }) => data.ok
+        ? resolve(data.rows)
+        : reject(new Error(data.error));
+      worker.onerror = (event) => reject(new Error(event.message || 'Summary worker failed.'));
+      worker.postMessage({ workbookUrl, sheetJsUrl, sheetName: SUMMARY_SHEET_NAME });
+    });
+  } finally {
+    worker.terminate();
+    URL.revokeObjectURL(workerUrl);
+  }
 }
 
 async function initializeSummaries() {

@@ -1,0 +1,110 @@
+/*
+ * Keep Summary labels and their detail text in stable columns.
+ * Long detail text may wrap, but every wrapped line stays aligned
+ * with the detail column instead of falling back under the bullet.
+ */
+.chartsubbodycontainer--label-data,
+.chartsubbodycontainer:has(> .chartsubbodytitle):not(.chartsubbodycontainer--grid-block) {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  column-gap: 20px;
+  align-items: start;
+}
+
+.chartsubbodycontainer--label-data > .chartsubbodytitle,
+.chartsubbodycontainer:has(> .chartsubbodytitle):not(.chartsubbodycontainer--grid-block) > .chartsubbodytitle {
+  display: block;
+  height: auto;
+  min-width: 0;
+  width: auto;
+}
+
+.chartsubbodycontainer--label-data > .chartsubbodydata,
+.chartsubbodycontainer:has(> .chartsubbodytitle):not(.chartsubbodycontainer--grid-block) > .chartsubbodydata {
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  width: auto;
+  padding-left: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Ranking/capacity lists use the same left/detail split as regular rows.
+ * The list itself starts in the detail column (the user's purple guide). */
+.chartsubbodycontainer--grid-block {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  column-gap: 20px;
+  align-items: start;
+}
+
+.chartsubbodycontainer--grid-block > .chartsubbodytitle {
+  display: block;
+  height: auto;
+  min-width: 0;
+  width: auto;
+}
+
+.chartsubbodycontainer--grid-block > .chartsubbodydata {
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  width: auto;
+  padding-left: 0;
+}
+
+.chartsubbodycontainer--grid-block .grid-row {
+  grid-template-columns: 140px minmax(64px, max-content) minmax(0, auto);
+}
+
+.chartsubbodycontainer--grid-block .grid-row--2-column {
+  grid-template-columns: 140px minmax(0, max-content);
+}
+
+/* Standalone text rows use a real bullet column so continuation lines
+ * align with the first character instead of falling back under the bullet. */
+.chartsubbodycontainer--standalone,
+.chartbody--with-bullet {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: start;
+}
+
+.summary-bullet {
+  display: block;
+  white-space: pre;
+}
+
+.chartsubbodytext,
+.chartbodycontent {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* A grid-only block has no label column and should use the full width. */
+.chartsubbodycontainer--grid-only > .chartsubbodydata--grid-only {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+  .chartsubbodycontainer--label-data,
+  .chartsubbodycontainer:has(> .chartsubbodytitle):not(.chartsubbodycontainer--grid-block) {
+    grid-template-columns: minmax(112px, 40%) minmax(0, 1fr);
+    column-gap: 10px;
+  }
+
+  .chartsubbodycontainer--grid-block .grid-row,
+  .chartsubbodycontainer--grid-block .grid-row--2-column {
+    grid-template-columns: minmax(112px, 40%) minmax(0, 1fr);
+  }
+
+  .chartsubbodycontainer--grid-block {
+    display: block;
+  }
+
+  .chartsubbodycontainer--grid-block > .chartsubbodydata {
+    width: 100%;
+    padding-left: 12px;
+  }
+}

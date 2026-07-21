@@ -51,6 +51,7 @@
           <a href="#index-all" target="_self" role="menuitem">All Departments</a>
           <a href="#index-dv" target="_self" role="menuitem">Delivery [CPS, PSE, SD]</a>
           <a href="#index-dept" target="_self" role="menuitem">Per Department</a>
+          <a href="#index-demand-dept" target="_self" role="menuitem">Demand Scenario per Department</a>
           <a href="#index-project" target="_self" role="menuitem">Project / Product</a>
         </span>
       </span>
@@ -108,6 +109,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="index-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartDODemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartDODemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
     <div class="resource-type-grid">
       <div class="chart rounded-div">
         <canvas id="workforceChartDOPR"></canvas>
@@ -147,6 +158,16 @@
             </div>
             <div class="secright">
               <div class="chart rounded-div"><canvas id="workforceChartDVPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="secwrapper">
+        <div class="secrow" id="index-dv-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartDVDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartDVDemandPlanQtr"></canvas></div>
             </div>
         </div>
     </div>
@@ -208,6 +229,56 @@
             </div>
             <div class="secright">
               <a href="tde"><div class="chart rounded-div"><canvas id="workforceChartTDEPlanQtr"></canvas></div></a>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Demand Scenario per Department -->
+
+  <div class="section" id="index-demand-dept">
+    Demand Scenario per Department
+    <div class="secwrapper">
+        <div class="secrow" id="index-demand-dept-cps">
+            <div class="secleft">
+              <a href="cps"><div class="chart rounded-div"><canvas id="workforceChartCPSDemandScenario"></canvas></div></a>
+            </div>
+            <div class="secright">
+              <a href="cps"><div class="chart rounded-div"><canvas id="workforceChartCPSDemandPlanQtr"></canvas></div></a>
+            </div>
+        </div>
+        <div class="secrow" id="index-demand-dept-pse">
+            <div class="secleft">
+              <a href="pse"><div class="chart rounded-div"><canvas id="workforceChartPSEDemandScenario"></canvas></div></a>
+            </div>
+            <div class="secright">
+              <a href="pse"><div class="chart rounded-div"><canvas id="workforceChartPSEDemandPlanQtr"></canvas></div></a>
+            </div>
+        </div>
+        <div class="secrow" id="index-demand-dept-sd">
+            <div class="secleft">
+              <a href="sd"><div class="chart rounded-div"><canvas id="workforceChartSDDemandScenario"></canvas></div></a>
+            </div>
+            <div class="secright">
+              <a href="sd"><div class="chart rounded-div"><canvas id="workforceChartSDDemandPlanQtr"></canvas></div></a>
+            </div>
+        </div>
+        <div class="secrow" id="index-demand-dept-aic">
+            <div class="secleft">
+              <a href="aic"><div class="chart rounded-div"><canvas id="workforceChartAICDemandScenario"></canvas></div></a>
+            </div>
+            <div class="secright">
+              <a href="aic"><div class="chart rounded-div"><canvas id="workforceChartAICDemandPlanQtr"></canvas></div></a>
+            </div>
+        </div>
+        <div class="secrow" id="index-demand-dept-tde">
+            <div class="secleft">
+              <a href="tde"><div class="chart rounded-div"><canvas id="workforceChartTDEDemandScenario"></canvas></div></a>
+            </div>
+            <div class="secright">
+              <a href="tde"><div class="chart rounded-div"><canvas id="workforceChartTDEDemandPlanQtr"></canvas></div></a>
             </div>
         </div>
     </div>

@@ -109,6 +109,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="aic-aic-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartAICDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartAICDemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
     <div class="resource-type-block" id="aic-resource">
       <div class="resource-type-grid">
       <div class="chart rounded-div resource-type-chart">
@@ -139,6 +149,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="aic-ra-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartRADemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartRADemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
   </div>
 
   <div class="section" id="aic-sect-aie">
@@ -153,6 +173,16 @@
             </div>
             <div class="secright">
               <div class="chart rounded-div"><canvas id="workforceChartAICPlanQtrAIE"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="secwrapper">
+        <div class="secrow" id="aic-aie-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartAIEDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartAIEDemandPlanQtr"></canvas></div>
             </div>
         </div>
     </div>
@@ -173,6 +203,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="aic-iot-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartIoTDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartIoTDemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
   </div>
 
   <div class="section" id="aic-sect-sai">
@@ -190,6 +230,16 @@
             </div>
         </div>
     </div>
+    <div class="secwrapper">
+        <div class="secrow" id="aic-sai-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartSAIDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartSAIDemandPlanQtr"></canvas></div>
+            </div>
+        </div>
+    </div>
   </div>
 
   <div class="section" id="aic-sect-pi">
@@ -204,6 +254,16 @@
             </div>
             <div class="secright">
               <div class="chart rounded-div"><canvas id="workforceChartAICPlanQtrPI"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="secwrapper">
+        <div class="secrow" id="aic-pi-demand-scenario">
+            <div class="secleft">
+              <div class="chart rounded-div"><canvas id="workforceChartPIDemandScenario"></canvas></div>
+            </div>
+            <div class="secright">
+              <div class="chart rounded-div"><canvas id="workforceChartPIDemandPlanQtr"></canvas></div>
             </div>
         </div>
     </div>
