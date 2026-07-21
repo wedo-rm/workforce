@@ -1298,8 +1298,38 @@ function configureDynamicProjectTotal(config, canvas, chartNumber) {
     return;
   }
 
+  // The workbook now contains only the five source categories. Keep Total as a
+  // generated line so it can recalculate whenever a legend item is toggled.
+  const totalDataset = {
+    label: 'Total FTE',
+    type: 'line',
+    data: [],
+    fill: false,
+    order: 1,
+    borderWidth: 1,
+    borderColor: 'rgba(91, 91, 91, 0.2)',
+    backgroundColor: 'rgba(91, 91, 91)',
+    pointRadius: 0,
+    pointHoverRadius: 0,
+    tension: 0.4,
+    datalabels: {
+      align: 'end',
+      anchor: 'end',
+      backgroundColor: null,
+      color: '#0000008A',
+      formatter: function(value) {
+        const numericValue = Number(value);
+        return Number.isFinite(numericValue)
+          ? String(Number(numericValue.toFixed(2)))
+          : value;
+      },
+      font: {
+        weight: 'bold'
+      }
+    }
+  };
+  config.data.datasets.push(totalDataset);
   const totalIndex = config.data.datasets.length - 1;
-  const totalDataset = config.data.datasets[totalIndex];
 
   function updateTotal(chart) {
     totalDataset.data = config.data.labels.map((_label, dataIndex) =>
@@ -1321,19 +1351,6 @@ function configureDynamicProjectTotal(config, canvas, chartNumber) {
       return sum + (Number.isFinite(value) ? value : 0);
     }, 0)
   );
-  totalDataset.borderWidth = 1;
-  totalDataset.borderColor = 'rgba(91, 91, 91, 0.2)';
-  totalDataset.backgroundColor = 'rgba(91, 91, 91)';
-  totalDataset.pointRadius = 0;
-  totalDataset.tension = 0.4;
-  totalDataset.datalabels ||= {};
-  totalDataset.datalabels.backgroundColor = null;
-  totalDataset.datalabels.color = '#0000008A';
-  totalDataset.datalabels.font = {
-    ...(totalDataset.datalabels.font || {}),
-    weight: 'bold'
-  };
-
   config.plugins.push({
     id: `dynamic-project-total-${chartNumber}`,
     beforeUpdate: updateTotal
@@ -3548,23 +3565,6 @@ function renderAllCharts(workbook) {
               backgroundColor: 'rgba(91, 155, 213)',
               order: 2,
               stack: 'grouppj'
-          }, {
-              backgroundColor: 'rgba(112, 174, 71)',
-              order: 2,
-              stack: 'grouppj'
-          },{
-              type: 'line',
-              borderWidth: 0,
-              //borderColor: 'rgba(91, 91, 91)',
-              backgroundColor: 'rgba(91, 91, 91)',
-              fill: false,
-              order: 1,
-              datalabels: {
-                  align: 'end',
-                  anchor: 'end',
-                  padding: 4
-              },
-              pointRadius: 0
           }]
       },
       plugins: [ChartDataSource],
@@ -3572,7 +3572,7 @@ function renderAllCharts(workbook) {
           title: {
               display: true,
               fontSize: 20,
-              text: "Top 5 FTE Planning [Q2'26:Q1'27]",
+              text: "Top FTE Planning [Q3'26:Q2'27]",
               padding: 20,
               fontColor: '#616161',
           },
@@ -3603,9 +3603,9 @@ function renderAllCharts(workbook) {
                   url: 'workforceresult.xlsx',
                   type: 'sheet',
                   //rowMapping: 'dataset',
-                  datasetLabels: 'GraphPJ!A22:A28',
-                  indexLabels: 'GraphPJ!B21:F21',
-                  data: 'GraphPJ!B22:F28'
+                  datasetLabels: 'GraphPJ!A22:A26',
+                  indexLabels: 'GraphPJ!B21:G21',
+                  data: 'GraphPJ!B22:G26'
               },
               datalabels: {
                   formatter: (value, ctx) => {

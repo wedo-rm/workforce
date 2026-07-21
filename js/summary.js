@@ -30,38 +30,72 @@ function restoreEscapedBrackets(value) {
   return value.replaceAll('\uE000', '[').replaceAll('\uE001', ']');
 }
 
-function appendMarkdownLinks(parent, value) {
+function appendMarkdown(parent, value) {
   const protectedText = String(value ?? '')
     .replace(/\\\[/g, '\uE000')
     .replace(/\\\]/g, '\uE001');
-  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const tokenPattern = /(\*\*([\s\S]+?)\*\*|\[([^\]]+)\]\(([^)]+)\)|\[([^\]]+)\]\{(plan|available|avai|shortage)\})/g;
   let cursor = 0;
   let match;
 
-  while ((match = linkPattern.exec(protectedText)) !== null) {
+  while ((match = tokenPattern.exec(protectedText)) !== null) {
     if (match.index > cursor) {
       parent.append(document.createTextNode(
         restoreEscapedBrackets(protectedText.slice(cursor, match.index))
       ));
     }
 
-    const href = safeHref(match[2]);
-    const label = restoreEscapedBrackets(match[1]);
-    if (href) {
+    if (match[2] !== undefined) {
+      const strong = document.createElement('strong');
+      appendMarkdown(strong, match[2]);
+      parent.append(strong);
+    } else if (match[3] !== undefined) {
+      const href = safeHref(match[4]);
+      const label = restoreEscapedBrackets(match[3]);
+      if (!href) {
+        parent.append(document.createTextNode(label));
+        cursor = tokenPattern.lastIndex;
+        continue;
+      }
       const link = document.createElement('a');
       link.href = href;
       link.textContent = label;
       parent.append(link);
     } else {
-      parent.append(document.createTextNode(label));
+      const styled = document.createElement('span');
+      styled.className = {
+        plan: 'text-plan',
+        available: 'text-avai',
+        avai: 'text-avai',
+        shortage: 'text-shortage'
+      }[match[6]] || '';
+      styled.textContent = restoreEscapedBrackets(match[5]);
+      parent.append(styled);
     }
-    cursor = linkPattern.lastIndex;
+    cursor = tokenPattern.lastIndex;
   }
 
   if (cursor < protectedText.length) {
     parent.append(document.createTextNode(
       restoreEscapedBrackets(protectedText.slice(cursor))
     ));
+  }
+}
+
+function noteTokens(row) {
+  return normalizeText(row.note)
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+function hasNote(row, token) {
+  return noteTokens(row).includes(token);
+}
+
+function addNoteClasses(element, row) {
+  for (const token of noteTokens(row)) {
+    if (/^[a-z0-9-]+$/.test(token)) element.classList.add(`summary-${token}`);
   }
 }
 
@@ -94,7 +128,7 @@ function appendField(parent, row, field) {
     link.textContent = value;
     wrapper.append(link);
   } else {
-    appendMarkdownLinks(wrapper, value);
+    appendMarkdown(wrapper, value);
   }
 
   parent.append(wrapper);
@@ -125,8 +159,12 @@ function isGridItem(row) {
 function makeGridItem(row) {
   const gridRow = document.createElement('div');
   gridRow.className = 'grid-row';
+  addNoteClasses(gridRow, row);
 
-  const populatedFields = ['label', 'data', 'highlight']
+  const fieldOrder = hasNote(row, 'percent-middle')
+    ? ['label', 'highlight', 'data']
+    : ['label', 'data', 'highlight'];
+  const populatedFields = fieldOrder
     .filter((field) => normalizeText(row[field]));
   gridRow.classList.add(`grid-row--${populatedFields.length}-column`);
 
@@ -142,23 +180,25 @@ function makeGridItem(row) {
 function appendStandaloneChild(parent, row) {
   const container = document.createElement('div');
   container.className = 'chartsubbodycontainer';
+  addNoteClasses(container, row);
+  const suppressBullet = hasNote(row, 'no-bullet') || hasNote(row, 'methodology-item');
 
   if (normalizeText(row.type).toLowerCase() === 'text-inline') {
     const title = document.createElement('div');
     title.className = 'chartsubbodytitle';
-    appendBullet(title, '\u2022');
+    if (!suppressBullet) appendBullet(title, '\u2022');
     appendInlineFields(title, row, ['label']);
     container.append(title);
 
     const data = document.createElement('div');
     data.className = 'chartsubbodydata';
-    appendInlineFields(data, row, ['data', 'highlight', 'note']);
+    appendInlineFields(data, row, ['data', 'highlight']);
     container.append(data);
     parent.append(container);
     return;
   }
 
-  appendBullet(container, '\u2022');
+  if (!suppressBullet) appendBullet(container, '\u2022');
   appendInlineFields(container, row);
   parent.append(container);
 }
@@ -166,6 +206,7 @@ function appendStandaloneChild(parent, row) {
 function appendGridBlock(parent, titleRow, itemRows) {
   const container = document.createElement('div');
   container.className = 'chartsubbodycontainer';
+  if (!titleRow) container.classList.add('chartsubbodycontainer--grid-only');
 
   if (titleRow) {
     const title = document.createElement('div');
@@ -177,6 +218,7 @@ function appendGridBlock(parent, titleRow, itemRows) {
 
   const data = document.createElement('div');
   data.className = 'chartsubbodydata';
+  if (!titleRow) data.classList.add('chartsubbodydata--grid-only');
   for (const item of itemRows) data.append(makeGridItem(item));
   container.append(data);
   parent.append(container);
@@ -251,6 +293,9 @@ function renderSummary(container, rows) {
     if (childRows.length) {
       const subbody = document.createElement('div');
       subbody.className = 'chartsubbody';
+      if (childRows.some((row) => hasNote(row, 'methodology-item'))) {
+        subbody.classList.add('summary-methodology-section');
+      }
       renderChildren(subbody, childRows);
       container.append(subbody);
     }

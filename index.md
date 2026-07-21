@@ -228,7 +228,7 @@
   </div>
     
   <div class="section" id="index-project-top">
-    Top 5 Project
+    Top Project
     <div class="chart rounded-div">
       <canvas id="workforceChartProjectPerTeam"></canvas>
     </div>

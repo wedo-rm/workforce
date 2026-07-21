@@ -389,6 +389,17 @@ h1 a {
   padding-left: 20px;
 }
 
+.chartsubbodycontainer--grid-only {
+  padding-left: 0;
+}
+
+.chartsubbodydata--grid-only {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 0;
+}
+
 
 .text-blue, .text-staff {
   color: #4472c4;
@@ -450,6 +461,69 @@ h1 a {
 .grid-cell--data,
 .grid-cell--highlight {
   white-space: nowrap;
+}
+
+.grid-row.summary-percent-middle {
+  grid-template-columns: minmax(110px, max-content) minmax(64px, max-content) minmax(0, auto);
+}
+
+.grid-row.summary-quarter-ranking {
+  grid-template-columns: minmax(120px, max-content) minmax(112px, max-content) minmax(96px, max-content);
+  column-gap: 10px;
+}
+
+.grid-row.summary-available-first .grid-cell--data {
+  color: #c00000;
+}
+
+.chartsubbodycontainer.summary-wide-inline .chartsubbodytitle {
+  min-width: 170px;
+}
+
+.chartsubbodycontainer.summary-wide-inline .chartsubbodydata {
+  box-sizing: border-box;
+  width: auto;
+  min-width: 150px;
+  padding-left: 8px;
+  white-space: nowrap;
+}
+
+.summary-plan-markdown strong {
+  color: #ed7d32;
+  font-weight: normal;
+}
+
+.summary-available-markdown strong {
+  color: #c00000;
+  font-weight: normal;
+}
+
+.summary-priority strong {
+  font-weight: bold;
+}
+
+.chartsubbody.summary-methodology-section {
+  margin: 16px 20px 8px 20px;
+  padding: 12px 20px 0 20px;
+  border-top: 1px solid #d9d9d9;
+  color: #777777;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.summary-methodology-section .chartsubbodycontainer {
+  padding-bottom: 2px;
+}
+
+.summary-methodology-section .chartsubbodytitle {
+  min-width: 96px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.summary-methodology-section .chartsubbodydata {
+  width: auto;
+  padding-left: 8px;
 }
 
 /*
