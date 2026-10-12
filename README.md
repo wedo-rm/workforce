@@ -87,7 +87,7 @@ Edit `index.md` to update:
 ### 3. Commit & Deploy
 ```bash
 git add .
-git commit -m "Q3 2026 workforce data update"
+git commit -m "Q4 2026 workforce data update"
 git push
 ```
 
@@ -101,6 +101,7 @@ Workforce planning is reviewed **quarterly**:
 
 | Quarter | Backup Repository |
 |---|---|
+| Q3 2026 | [workforce-2026-q3](https://github.com/wedo-rm/workforce-2026-q3) |
 | Q2 2026 | [workforce-2026-q2](https://github.com/wedo-rm/workforce-2026-q2) |
 | Q1 2026 | *(archived)* |
 

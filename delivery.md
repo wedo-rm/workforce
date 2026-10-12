@@ -64,7 +64,7 @@
       </span>
     </span>
     <span class="subbtn subactions">
-      <a class="quarter-history-link" href="https://wedo-rm.github.io/workforce-2026-q2/delivery" target="_blank" rel="noopener noreferrer" title="Previous quarter: Q2/2026" aria-label="Open previous quarter Q2/2026 in a new tab">
+      <a class="quarter-history-link" href="https://wedo-rm.github.io/workforce-2026-q3/delivery" target="_blank" rel="noopener noreferrer" title="Previous quarter: Q3/2026" aria-label="Open previous quarter Q3/2026 in a new tab">
         <svg class="quarter-history-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M3 12a9 9 0 1 0 3-6.7"></path>
           <path d="M3 4v6h6"></path>

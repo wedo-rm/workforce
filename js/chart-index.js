@@ -3965,8 +3965,8 @@ function renderAllCharts(workbook) {
           title: {
               display: true,
               fontSize: 20,
-              text: "Top FTE Planning [Q3'26:Q2'27]",
-              padding: 20,
+              text: 'Top Projects by Planned FTE',
+              padding: { top: 20, bottom: 6 },
               fontColor: '#616161',
           },
           legend: {
@@ -3999,6 +3999,13 @@ function renderAllCharts(workbook) {
                   datasetLabels: 'GraphPJ!A22:A26',
                   indexLabels: 'GraphPJ!B21:G21',
                   data: 'GraphPJ!B22:G26'
+              },
+              subtitle: {
+                  display: true,
+                  text: 'Q4 2026 – Q3 2027',
+                  color: '#757575',
+                  font: { size: 14, weight: 'normal' },
+                  padding: { top: 0, bottom: 20 }
               },
               datalabels: {
                   formatter: (value, ctx) => {
